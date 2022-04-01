@@ -1,0 +1,5 @@
+You will set up Heroku to run on a production, not development, version of your application.
+When a Node.js application like yours is pushed up to Heroku, it is identified as a Node.js application because of the package.json file.
+ It runs npm install automatically.
+  Then, if there is a heroku-postbuild script in the package.json file, it will run that script.
+  Afterwards, it will automatically run npm start.
