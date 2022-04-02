@@ -1,16 +1,16 @@
-// This file will hold the resources for the route paths beginning with /api/session.
-//User Login API Route
-
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { setTokenCookie, restoreUser } = require('../../utils/auth');
+const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth');
 const { User } = require('../../db/models');
 
 const router = express.Router();
 
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+
+// This file will hold the resources for the route paths beginning with /api/session.
+//User Login API Route
 
 //The POST /api/session login route will expect the body of the request to have
 //a key of credential with either the username or email of a user
@@ -40,6 +40,13 @@ router.get(
     }
   );
 
+  router.get(
+    '/require-auth',
+    requireAuth,
+    (req, res) => {
+      return res.json(req.user);
+    }
+  );
 
 
 //Log in
