@@ -26,11 +26,6 @@
 .loginform input {
     display: block;
     border-radius: 30px;
-    color: white;
+    color: black;
     width: 200px;
-  }
-
-
-  .input{
-      color:red;
   }
