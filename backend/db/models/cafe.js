@@ -1,5 +1,5 @@
 'use strict';
-const { Validator } = require('sequelize');
+//const { Validator } = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
   const Cafe = sequelize.define('Cafe', {
