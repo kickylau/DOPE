@@ -1,1 +1,4 @@
 Heroku will automatically run this script after running npm install.
+
+git push heroku main
+
