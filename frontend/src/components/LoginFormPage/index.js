@@ -29,6 +29,16 @@ function LoginFormPage() {
       });
   }
 
+
+  //demo user
+  const demo = () => {
+    setCredential("demo@user.io")
+    setPassword("password")
+    return;
+  }
+
+
+
   //Render a form with a controlled input for the user login credential
   //(username or email) and a controlled input for the user password.
   return (
@@ -54,6 +64,7 @@ function LoginFormPage() {
           required
         />
       </label>
+      <button type="demo">Demo User</button>
       <button type="submit">Log In</button>
     </form>
   );

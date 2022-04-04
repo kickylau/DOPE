@@ -12,6 +12,7 @@ function SignupFormPage() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errors, setErrors] = useState([]);
+    //const [credential, setCredential] = useState('');
 
     //If there is a current session user in the Redux store,
     //then redirect the user to the "/" path if trying to access the SignupFormPage.
@@ -37,6 +38,14 @@ function SignupFormPage() {
         //signup thunk action with the form input values.
         return setErrors(['Confirm Password field must be the same as the Password field'])
     }
+
+
+//      //another demo user entry
+//     const demo = () => {
+//     setCredential("demo@user.io")
+//     setPassword("password")
+//     return;
+//   }
 
     //signup welcome page and classname
     return (
@@ -81,6 +90,7 @@ function SignupFormPage() {
                 />
             </label>
             <button type="submit">Log In</button>
+
         </form>
     );
 }
