@@ -48,6 +48,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
   User.associate = function (models) {
+    User.hasMany(models.Review,{foreignKey:"userId"})
+    User.hasMany(models.Cafe,{foreignKey:"ownerId"})
     // associations can be defined here
   };
 
