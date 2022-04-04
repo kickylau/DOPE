@@ -11,8 +11,8 @@ const router = express.Router();
 
 
 const cafeNotFoundError = (id) => {
-    const err = Error('Product not found');
-    err.errors = [`Product with id of ${id} could not be found.`];
+    const err = Error('Cafe not found');
+    err.errors = [`Cafe with id of ${id} could not be found.`];
     err.title = 'Cafe not found.';
     err.status = 404;
     return err;
