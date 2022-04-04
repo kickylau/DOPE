@@ -36,9 +36,9 @@ const cafeNotFoundError = (id) => {
 router.get(
     '/',
     asyncHandler(async (req, res) => {
-    //    const cafes = await Cafe.findAll();
-    res.send("HELLO")
-    //   return res.json({ cafes });
+        const cafe = await Cafe.findAll();
+    //res.send("HELLO")
+      return res.json({ cafe });
     })
   );
 
@@ -47,8 +47,8 @@ router.get(
     '/new',
     validateCafe,
     asyncHandler(async (req, res) => {
-      const { img,title,description,address,city,zipCode} = req.body;
-      const cafe = await Cafe.create({ img,title,description,address,city,zipCode});
+      const { img,title,ownerId,description,address,city,zipCode} = req.body;
+      const cafe = await Cafe.create( req.body);
       return res.json({ cafe });
     })
   );
@@ -76,7 +76,7 @@ router.get(
 
       if (cafe) {
         cafe.img = req.body.img || cafe.img;
-       cafe.title = req.body.title || cafe.title;
+        cafe.title = req.body.title || cafe.title;
         cafe.description = req.body.description || product.description;
         cafe.address = req.body.address || cafe.address;
         cafe.city = req.body.city || cafe.city;

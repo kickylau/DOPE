@@ -45,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       type: DataTypes.INTEGER
     },
-  }, {});
+  }, {freezeTableName: true,});
   Cafe.associate = function(models) {
     Cafe.hasMany(models.Review,{foreignKey:"businessId"})
     Cafe.belongsTo(models.User,{foreignKey:"ownerId"})

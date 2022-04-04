@@ -7,7 +7,7 @@ module.exports = {
       // Return a promise to correctly handle asynchronicity.
 
       // Example:
-      return queryInterface.bulkInsert('Cafes', [{
+      return queryInterface.bulkInsert('Cafe', [{
         ownerId: 1,
         title: "Ben & Jerry",
         description: "Lower East Side Your Pet Friendly Cafe",
@@ -26,6 +26,6 @@ module.exports = {
 
       Example:
 
-    */return queryInterface.bulkDelete('Cafes', null, {});
+    */return queryInterface.bulkDelete('Cafe', null, {});
   }
 };

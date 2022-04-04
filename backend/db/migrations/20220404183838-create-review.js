@@ -16,7 +16,7 @@ module.exports = {
       businessId: {
         allowNull: false,
         type: Sequelize.INTEGER,
-        references: { model: 'Cafes' }
+        references: { model: 'Cafe' }
       },
       answer: {
         allowNull:false,
