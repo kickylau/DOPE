@@ -32,7 +32,7 @@ function LoginFormPage() {
   //Render a form with a controlled input for the user login credential
   //(username or email) and a controlled input for the user password.
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="loginform" onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>

@@ -38,6 +38,7 @@ function SignupFormPage() {
         return setErrors(['Confirm Password field must be the same as the Password field'])
     }
 
+    //signup welcome page and classname
     return (
         <form onSubmit={handleSubmit}>
             <ul>
