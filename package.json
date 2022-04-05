@@ -14,5 +14,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "proxy": "http://localhost:6000"
 }
