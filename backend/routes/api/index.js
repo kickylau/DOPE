@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-const cafesRouter = require("../cafes.js");
+const cafesRouter = require("./cafes.js");
 //const {Cafe,Review,User } = require("../db/models")
 //const cafesRouter = require('../')
 

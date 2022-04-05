@@ -1,11 +1,11 @@
 const { check } = require('express-validator');
-const { handleValidationErrors } = require('../utils/validation');
+const { handleValidationErrors } = require('../../utils/validation');
 
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { setTokenCookie, requireAuth } = require('../utils/auth');
-const { User, Cafe, Review} = require('../db/models');
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { User, Cafe, Review} = require('../../db/models');
 
 const router = express.Router();
 
@@ -91,14 +91,14 @@ router.get(
     })
   );
 
-  router.delete('/:id(\\d+)', async (req, res, next) => {
+  router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const cafe = await Cafe.findByPk(req.params.id);
     if (cafe) {
       await cafe.destroy();
-      res.status(204).end();
+      res.status(204).json({message:"succeed"});
     } else {
       next(cafeNotFoundError(req.params.id));
     }
-  });
+  }));
 
 module.exports = router;

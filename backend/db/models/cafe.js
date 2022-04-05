@@ -47,8 +47,11 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {freezeTableName: true,});
   Cafe.associate = function(models) {
-    Cafe.hasMany(models.Review,{foreignKey:"businessId"})
+    Cafe.hasMany(models.Review,{foreignKey:"businessId", onDelete:"cascade", hooks:true})
     Cafe.belongsTo(models.User,{foreignKey:"ownerId"})
+
+
+
 
     // associations can be defined here
   };
