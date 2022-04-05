@@ -49,6 +49,7 @@ function SignupFormPage() {
 
     //signup welcome page and classname
     return (
+        <a>
         <form className="signupform" onSubmit={handleSubmit}>
             <ul>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -92,6 +93,7 @@ function SignupFormPage() {
             <button type="submit">Log In</button>
 
         </form>
+        </a>
     );
 }
 

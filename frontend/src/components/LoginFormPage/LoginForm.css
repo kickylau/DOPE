@@ -2,7 +2,7 @@
 
 .loginform{
     display:flex;
-    color:grey;
+    color:black;
     flex-direction: column;
     align-items:center;
     gap:30px;
@@ -13,20 +13,22 @@
 
 .loginform button {
     width: 100px;
-    background-color: white;
-    border-radius: 30px;
-    color: grey;
+    background-color: pink;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    border-radius: 5px;
+    
 
 }
 
   .loginform button:hover {
-    background-color: lightgrey;
+    background-color:  lightpink;
 }
 
 
 .loginform input {
     display: block;
-    border-radius: 30px;
+    border-radius: 5px;
     color: black;
     width: 200px;
   }

@@ -1,0 +1,174 @@
+.cafe-detail{
+ display:flex;
+ flex-direction: column;
+}
+
+
+
+.cafe-description{
+    color:grey;
+    font-size:20px;
+}
+
+
+
+.cafe-address{
+    color:grey;
+    font-size:15px;
+}
+
+
+
+.cafe-city{
+    color:grey;
+    font-size:15px;
+}
+
+
+
+.cafe-title{
+    color:black;
+    font-size:25px;
+}
+
+
+
+.cafe-zipCode{
+    color:grey;
+    font-size:15px;
+}
+
+
+.cafe-img{
+    height: 50%;
+    width: 50%;
+    border-radius: 5px;
+}
+
+.delete-button{
+    width: 100px;
+    background-color: pink;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    border-radius: 5px;
+    margin-right: 20px;
+
+}
+
+.delete-button:hover {
+    background-color:  lightpink;
+}
+
+
+.update-button{
+    width: 100px;
+    background-color: pink;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    border-radius: 5px;
+
+}
+
+.update-button:hover{
+    background-color:  lightpink;
+}
+
+
+.edit-cafe{
+    display:flex;
+    color:black;
+    flex-direction: column;
+    align-items:center;
+    text-align:center;
+    line-height: 26px;
+}
+
+
+.submit-button {
+      background-color: pink;
+      font-weight: 600;
+      color: rgba(255,255,255,1);
+      border-radius: 5px;
+      width: 100px;
+      margin-right: 10px;
+      margin-top:20px;
+}
+
+/* .submit-button2 {
+    background-color: pink;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    border-radius: 5px;
+    width: 100px;
+    margin-right:100px;
+} */
+
+.submit-button:hover {
+    background-color: lightpink;
+}
+
+
+/* .submit-button2:hover {
+    background-color: lightpink;
+} */
+
+.edit-cafe input {
+    display: block;
+    border-radius: 5px;
+    color: black;
+    width: 200px;
+
+  }
+
+
+  .cancel-button{
+    background-color: pink;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 10px;
+    margin-top:20px;
+
+  }
+
+  /* .cancel-button2{
+    background-color: pink;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    border-radius: 5px;
+    width: 100px;
+    margin-left:100px;
+  } */
+
+  .cancel-button:hover {
+    background-color: lightpink;
+}
+
+
+/* .cancel-button2:hover {
+    background-color: lightpink;
+} */
+
+.add-cafe input {
+    display: block;
+    border-radius: 5px;
+    color: black;
+    width: 200px;
+}
+
+.add-cafe{
+    display:flex;
+    color:black;
+    flex-direction: column;
+    align-items:center;
+    text-align:center;
+    line-height: 26px;
+}
+
+a:link, a:visited,  a:hover, a:active
+{
+    color: black;
+    text-decoration: none;
+    padding:10px;
+}

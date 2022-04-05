@@ -1,16 +1,68 @@
 /* wait to add css */
 .profile-dropdown{
-    color:grey;
+    color:black;
     font-size: 16px;
 }
 
 .logout{
-    width: 70px;
-    background-color: white;
-    border-radius: 30px;
-    color: grey;
+    width: 100px;
+    background-color: pink;
+    font-weight: 600;
+    color: rgba(255,255,255,1);
+    border-radius: 5px;
 }
 
 .logout:hover {
-    background-color: lightgrey;
+    background-color:  lightpink;
 }
+
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    background-color:pink;
+    border-radius: 5px;
+    width:30px;
+    margin-inline: auto;
+    text-align: center;
+
+
+
+}
+
+
+.profile:hover {
+    background-color:  lightpink;
+}
+
+ul {
+    width:100%;
+    margin: 0;
+    padding: 0px;
+    overflow:hidden;
+    list-style-type: none;
+  }
+
+  /* li {
+    float: left;
+  } */
+
+  li a {
+    display: block;
+    font-size:20px;
+    text-align:center;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  .active{
+    background-color: pink;
+  color: white;
+
+  }
+
+
+  li a:hover {
+    background-color: lightpink;
+    color: white;
+  }

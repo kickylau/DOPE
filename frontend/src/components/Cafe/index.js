@@ -12,7 +12,7 @@ const Cafe = () => {
     }, [dispatch]);
 
     return (
-        <div>
+        <a>
           <div className='cafes'>
             {cafe?.map(( { id,img,title,description,address,city,zipCode}) => (
               <CafeDetail
@@ -27,7 +27,7 @@ const Cafe = () => {
               />
             ))}
           </div>
-        </div>
+        </a>
       );
     };
   export default Cafe;

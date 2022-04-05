@@ -3,7 +3,7 @@ import { deleteCafe, updateCafe } from '../../store/cafes';
 import { useHistory } from 'react-router-dom';
 //import UpdateCafe from "./UpdateCafe";
 import {useState} from "react"
-//import css
+import "./CafePage.css"
 
 const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
   const cafe = { id,img,title,description,address,city,zipCode}
@@ -28,21 +28,21 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
    }
 
   return (
+    <a>
     <div className='cafe-detail'>
-      <h3>Cafe Lists</h3>
-      <img src={img} id="img" />
+      <img src={img} className='cafe-img' id="img" />
       <span className='cafe-title'>{title}</span>
-      <span>description{description}</span>
-      <span>address{address}</span>
-      <span>city{city}</span>
-      <span>zipCode{zipCode}</span>
+      <span className='cafe-description'>{description}</span>
+      <span className='cafe-address' >Address:{address}</span>
+      <span className = 'cafe-city'>City:{city}</span>
+      <span className = 'cafe-zipCode'>ZipCode:{zipCode}</span>
       <div className='button-row'>
         <button onClick={() => handleDelete(id)} className='delete-button'>
           Delete
         </button>
         <button onClick={openEdit} className='update-button'>Update</button>
       </div>
-    </div>
+    </div></a>
   );
 };
 export default CafeDetail;

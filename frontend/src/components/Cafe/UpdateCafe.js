@@ -57,6 +57,7 @@ function UpdateCafe({ cafe }) {
         // <h3>Edit A Cafe</h3>
        if (sessionUser) {
            return (
+               <a>
             <div className='edit-cafe'>
             <h3>Edit A Cafe</h3>
            <form onSubmit={handleSubmit} className='edit-cafe'>
@@ -126,13 +127,14 @@ function UpdateCafe({ cafe }) {
             <button className='submit-button' type='submit'>
                 Update Cafe
             </button>
-            <button type="button" onClick={handleCancelClick} >
+            <button type="button" className='cancel-button' onClick={handleCancelClick} >
                 Cancel
             </button>
             </div>
 
         </form>
-        </div>)
+        </div>
+        </a>)
        } else {
             return (<h2>PLEASE LOG IN FIRST TO UPDATE </h2>)
         }

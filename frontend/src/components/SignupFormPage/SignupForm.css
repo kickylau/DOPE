@@ -2,7 +2,7 @@
 
 .signupform{
     display:flex;
-    color:grey;
+    color:black;
     flex-direction: column;
     align-items:center;
     gap:30px;
@@ -12,20 +12,21 @@
 
 
 .signupform button {
-    width: 70px;
-    background-color: white;
-    border-radius: 30px;
-    color: grey;
+      background-color: pink;
+      font-weight: 600;
+      color: rgba(255,255,255,1);
+      border-radius: 5px;
+      width: 100px;
 }
 
   .signupform button:hover {
-    background-color: lightgrey;
+    background-color: lightpink;
 }
 
 
 .signupform input {
     display: block;
-    border-radius: 30px;
+    border-radius: 5px;
     color: black;
     width: 200px;
   }
