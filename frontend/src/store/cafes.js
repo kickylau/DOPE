@@ -65,6 +65,7 @@ export const updateCafe = (payload) => async (dispatch) => {
         const data = await response.json()
         const updatedCafe = data.cafe
         dispatch(updateOneCafe(updatedCafe))
+        return updatedCafe;
     }
 }
 
