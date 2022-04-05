@@ -47,9 +47,9 @@ router.get(
     '/new',
     validateCafe,
     asyncHandler(async (req, res) => {
-      const { img,title,ownerId,description,address,city,zipCode} = req.body;
-      const cafe = await Cafe.create( req.body);
-      return res.json({ cafe });
+      //const { img,title,ownerId,description,address,city,zipCode} = req.body;
+      const cafe = await Cafe.create(req.body);
+      return res.json(cafe);
     })
   );
 
