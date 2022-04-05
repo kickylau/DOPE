@@ -11,8 +11,11 @@ const CreateCafe = () => {
   const [zipCode, setZipCode] = useState('');
   const [errors, setErrors] = useState([])
   const cafe = useSelector(state => Object.values(state.cafe))
-  const history = useHistory();
+  //const history = useHistory();
   const dispatch = useDispatch();
+  const handleCancelClick = (e) => {
+    e.preventDefault()
+  };
 
 
   const handleSubmit = async (e) => {
@@ -36,7 +39,7 @@ const CreateCafe = () => {
     setTitle("");
     setImg("")
     setDescription("");
-    setAdress("");
+    setAddress("");
     setCity("");
     setZipCode("")
   };

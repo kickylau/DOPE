@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-//import { updateCafe } from "../../store/cafes";
-// import './SignupForm.css'
+import { updateCafe } from "../../store/cafes";
+
 
 function UpdateCafe({ cafe }) {
     const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function UpdateCafe({ cafe }) {
             img,
         };
 
-        await dispatch(UpdateCafe(payload));
+        await dispatch(updateCafe(payload));
     };
 
     const handleCancelClick = (e) => {
