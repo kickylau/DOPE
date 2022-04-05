@@ -33,7 +33,7 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
         <button onClick={() => handleDelete(id)} className='delete-button'>
           Delete
         </button>
-        <button onClick={openEdit()} className='update-button'>Update</button>
+        <button onClick={openEdit} className='update-button'>Update</button>
       </div>
     </div>
   );

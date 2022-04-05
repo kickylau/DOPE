@@ -32,7 +32,7 @@ function Navigation({ isLoaded }){
         {isLoaded && sessionLinks}
       </li>
       <li>
-        <NavLink exact to="/cafes">Cafes</NavLink>
+        <NavLink exact to="/cafes/new">Add Cafes</NavLink>
         {isLoaded }
       </li>
     </ul>

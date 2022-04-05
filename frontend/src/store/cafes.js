@@ -42,14 +42,15 @@ export const getAllCafes = () => async (dispatch) => {
 export const addCafe = (cafe) => async (dispatch) => {
     const response = await csrfFetch('/api/cafes/new', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        //headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cafe)
     });
 
     if (response.ok) {
         const data = await response.json();
         //console.log('add', data);
-        dispatch(addOneCafe(data.cafe));
+        dispatch(addOneCafe(data));
+        return response;
     }
 };
 
@@ -95,6 +96,9 @@ const cafeReducer = (state = {}, action) => {
         case ADD_ONE_CAFE:
             newState = { ...state, [action.payload.id]: action.payload };
             return newState;
+            // newState = Object.assign({},state)
+            // newState.cafe = action.payload //normalizing data
+            // return newState
         case REMOVE_ONE_CAFE:
             newState = { ...state };
             delete newState[action.payload];

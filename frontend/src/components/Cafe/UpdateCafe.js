@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch, useSelector} from "react-redux";
+import { Redirect, useHistory,useParams } from "react-router-dom";
 import { updateCafe } from "../../store/cafes";
+
 
 
 function UpdateCafe({ cafe }) {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [title, setTitle] = useState(cafe?.title);  //conditional chaining
     const [description, setDescription] = useState(cafe?.description);
     const [address, setAddress] = useState(cafe?.address);
@@ -13,13 +15,18 @@ function UpdateCafe({ cafe }) {
     const [zipCode, setZipCode] = useState(cafe?.zipCode);
     const [img, setImg] = useState(cafe?.img);
     const [errors, setErrors] = useState([]);
+    const sessionUser = useSelector((state)=>state.session.user)
+    const {id} = useParams()
+    //console.log(params)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
 
         const payload = {
-            ...cafe,
+            //...cafe,
+            id, //missing the cafe id 
+            ownerId:sessionUser.id,
             title,
             description,
             address,
@@ -28,8 +35,15 @@ function UpdateCafe({ cafe }) {
             img,
         };
 
-        await dispatch(updateCafe(payload));
-    };
+        console.log(payload)
+        const createOne = await dispatch(updateCafe(payload));
+        if (createOne){
+            history.push('/cafes');
+        }
+
+
+      };
+
 
     const handleCancelClick = (e) => {
         e.preventDefault()

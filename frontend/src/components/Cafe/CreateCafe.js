@@ -11,7 +11,10 @@ const CreateCafe = () => {
   const [city, setCity] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [errors, setErrors] = useState([])
+  const sessionUser = useSelector((state)=>state.session.user)
+
   const cafe = useSelector(state => Object.values(state.cafe))
+  //console.log(cafe)
   const history = useHistory();
   const dispatch = useDispatch();
   const handleCancelClick = (e) => {
@@ -22,6 +25,7 @@ const CreateCafe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
+      ownerId:sessionUser.id,
       img,
       title,
       description,
@@ -29,9 +33,12 @@ const CreateCafe = () => {
       city,
       zipCode,
     };
-    await dispatch(addCafe(payload));
 
-    history.push('/');
+    const createOne = await dispatch(addCafe(payload));
+    if (createOne){
+        history.push('/');
+    }
+
     reset();
   };
 
