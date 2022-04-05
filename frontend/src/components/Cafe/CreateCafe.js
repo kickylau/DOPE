@@ -15,7 +15,7 @@ const CreateCafe = () => {
   const dispatch = useDispatch();
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       img,
@@ -25,7 +25,7 @@ const CreateCafe = () => {
       city,
       zipCode,
     };
-    dispatch(addCafe(payload));
+    await dispatch(addCafe(payload));
 
     history.push('/');
     reset();
@@ -63,19 +63,19 @@ const CreateCafe = () => {
           placeholder='Description'
           required
         />
-           <input
+        <input
           onChange={(e) => setAddress(e.target.value)}
           value={address}
           placeholder='Address'
           required
         />
-           <input
+        <input
           onChange={(e) => setCity(e.target.value)}
           value={city}
           placeholder='City'
           required
         />
-           <input
+        <input
           onChange={(e) => setZipCode(e.target.value)}
           value={zipCode}
           placeholder='ZipCode'
@@ -83,6 +83,9 @@ const CreateCafe = () => {
         />
         <button className='submit-button' type='submit'>
           Add Cafe
+        </button>
+        <button type="button" onClick={handleCancelClick}>
+          Cancel
         </button>
       </form>
     </div>

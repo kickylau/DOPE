@@ -66,9 +66,18 @@ export const deleteCafe = (id) => async (dispatch) => {
     });
 
     if (response.ok) {
+        const data = await response.json()
+        console.log(data)
         dispatch(removeOneCafe(id));
     }
 };
+
+
+
+// export const deleteSpot = (id) => async (dispatch) => {
+//   await csrfFetch(`/api/spots/${id}`, { method: 'DELETE' })
+//   dispatch(updateSpotExistence());
+// }
 
 const cafeReducer = (state = {}, action) => {
     let newState = {};
