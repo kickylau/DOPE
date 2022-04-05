@@ -77,7 +77,7 @@ router.get(
       if (cafe) {
         cafe.img = req.body.img || cafe.img;
         cafe.title = req.body.title || cafe.title;
-        cafe.description = req.body.description || product.description;
+        cafe.description = req.body.description || cafe.description;
         cafe.address = req.body.address || cafe.address;
         cafe.city = req.body.city || cafe.city;
         cafe.zipCode = req.body.zipCode || cafe.zipCode;
