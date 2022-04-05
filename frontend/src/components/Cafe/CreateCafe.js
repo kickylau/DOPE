@@ -19,6 +19,7 @@ const CreateCafe = () => {
   const dispatch = useDispatch();
   const handleCancelClick = (e) => {
     e.preventDefault()
+    history.push("/cafes")
   };
 
 
@@ -36,10 +37,10 @@ const CreateCafe = () => {
 
     const createOne = await dispatch(addCafe(payload));
     if (createOne){
-        history.push('/');
+        history.push('/cafes');
     }
 
-    reset();
+    //reset();
   };
 
 
@@ -52,7 +53,8 @@ const CreateCafe = () => {
     setZipCode("")
   };
 
-  return (
+  if (sessionUser) {
+    return (
     <div className='add-cafe'>
       <h3>Add A Cafe</h3>
       <form onSubmit={handleSubmit} className='add-cafe'>
@@ -99,7 +101,9 @@ const CreateCafe = () => {
           Cancel
         </button>
       </form>
-    </div>
-  );
+    </div>)
+        } else {
+          return (<h2>PLEASE LOG IN FIRST TO CREATE </h2>)
+      }
 };
 export default CreateCafe;

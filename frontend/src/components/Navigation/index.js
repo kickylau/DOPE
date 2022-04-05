@@ -28,11 +28,11 @@ function Navigation({ isLoaded }){
   return (
     <ul>
       <li>
-        <NavLink exact to="/">Home</NavLink>
+        <NavLink exact to="/cafes">Home</NavLink>
         {isLoaded && sessionLinks}
       </li>
       <li>
-        <NavLink exact to="/cafes/new">Add Cafes</NavLink>
+        <NavLink exact to="/cafes/new">Add A Cafe</NavLink>
         {isLoaded }
       </li>
     </ul>

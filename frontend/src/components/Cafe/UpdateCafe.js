@@ -16,8 +16,9 @@ function UpdateCafe({ cafe }) {
     const [img, setImg] = useState(cafe?.img);
     const [errors, setErrors] = useState([]);
     const sessionUser = useSelector((state)=>state.session.user)
+    //console.log(sessionUser)
     const {id} = useParams()
-    //console.log(params)
+    //console.log(id)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -25,7 +26,7 @@ function UpdateCafe({ cafe }) {
 
         const payload = {
             //...cafe,
-            id, //missing the cafe id 
+            id, //missing the cafe id
             ownerId:sessionUser.id,
             title,
             description,
@@ -35,7 +36,7 @@ function UpdateCafe({ cafe }) {
             img,
         };
 
-        console.log(payload)
+        //console.log(payload)
         const createOne = await dispatch(updateCafe(payload));
         if (createOne){
             history.push('/cafes');
@@ -47,12 +48,18 @@ function UpdateCafe({ cafe }) {
 
     const handleCancelClick = (e) => {
         e.preventDefault()
+        history.push("/cafes")
     };
 
-    return (
+
+
         // <div className='edit-cafe'>
         // <h3>Edit A Cafe</h3>
-        <form onSubmit={handleSubmit} className='edit-cafe'>
+       if (sessionUser) {
+           return (
+            <div className='edit-cafe'>
+            <h3>Edit A Cafe</h3>
+           <form onSubmit={handleSubmit} className='edit-cafe'>
             <ul>
                 {errors.map((error) => <li key={error}>{error}</li>)}
             </ul>
@@ -117,16 +124,20 @@ function UpdateCafe({ cafe }) {
                 /></label>
 
             <button className='submit-button' type='submit'>
-                Add Cafe
+                Update Cafe
             </button>
-            <button type="button" onClick={handleCancelClick}>
+            <button type="button" onClick={handleCancelClick} >
                 Cancel
             </button>
             </div>
 
         </form>
+        </div>)
+       } else {
+            return (<h2>PLEASE LOG IN FIRST TO UPDATE </h2>)
+        }
         // {/* </div> */}
-    );
+
 }
 
 export default UpdateCafe;

@@ -17,7 +17,7 @@ function SignupFormPage() {
     //If there is a current session user in the Redux store,
     //then redirect the user to the "/" path if trying to access the SignupFormPage.
     if (sessionUser) return (
-        <Redirect to="/" />
+        <Redirect to="/cafes" />
     );
 
     //how would it know if you are already a session user?

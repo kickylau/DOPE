@@ -14,7 +14,7 @@ function LoginFormPage() {
   //If there is a current session user in the Redux store,
   //then redirect the user to the "/" path if trying to access the LoginFormPage.
   if (sessionUser) return (
-    <Redirect to="/" />
+    <Redirect to="/cafes" />
   );
 
   const handleSubmit = (e) => {

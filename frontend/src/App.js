@@ -31,12 +31,13 @@ function App() {
           <Route exact path="/cafes">
             <Cafe />
           </Route>
+          <Route exact path="/cafes/new">
+            <CreateCafe />
+          </Route>
           <Route path="/cafes/:id/edit">
             <UpdateCafe />
           </Route>
-          <Route path="/cafes/new">
-            <CreateCafe />
-          </Route>
+
         </Switch>
       )}
     </>
