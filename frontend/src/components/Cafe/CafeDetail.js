@@ -1,16 +1,26 @@
 import { useDispatch } from 'react-redux';
-import { deleteCafe } from '../../store/cafes';
-import UpdateCafe from "./UpdateCafe";
+import { deleteCafe, updateCafe } from '../../store/cafes';
+import { useHistory } from 'react-router-dom';
+//import UpdateCafe from "./UpdateCafe";
 import {useState} from "react"
 //import css
 
 const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
   const cafe = { id,img,title,description,address,city,zipCode}
   const dispatch = useDispatch();
+  //const [toggleEdit, setToggleEdit] = useState(false);
+
+  const history = useHistory();
 
   const handleDelete = (id) => {
     dispatch(deleteCafe(id));
   };
+
+   const openEdit = () => {
+     history.push(`/cafes/${id}/edit`)
+  //    setToggleEdit(!toggleEdit)
+   }
+
   return (
     <div className='cafe-detail'>
       <img src={img} id="img" />
@@ -23,7 +33,7 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
         <button onClick={() => handleDelete(id)} className='delete-button'>
           Delete
         </button>
-        <button className='update-button'>Update</button>
+        <button onClick={openEdit()} className='update-button'>Update</button>
       </div>
     </div>
   );

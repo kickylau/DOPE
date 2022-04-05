@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addCafe } from '../../store/cafes';
+import { useHistory } from 'react-router-dom';
 
 const CreateCafe = () => {
   const [img, setImg] = useState('');
@@ -11,7 +12,7 @@ const CreateCafe = () => {
   const [zipCode, setZipCode] = useState('');
   const [errors, setErrors] = useState([])
   const cafe = useSelector(state => Object.values(state.cafe))
-  //const history = useHistory();
+  const history = useHistory();
   const dispatch = useDispatch();
   const handleCancelClick = (e) => {
     e.preventDefault()

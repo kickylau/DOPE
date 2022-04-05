@@ -6,7 +6,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Cafe from "./components/Cafe";
-//import CreateCafe from "./components/Cafe/CreateCafe";
+import CreateCafe from "./components/Cafe/CreateCafe";
+import UpdateCafe from "./components/Cafe/UpdateCafe";
 
 
 function App() {
@@ -27,11 +28,14 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/cafes">
+          <Route exact path="/cafes">
             <Cafe />
           </Route>
+          <Route path="/cafes/:id/edit">
+            <UpdateCafe />
+          </Route>
           <Route path="/cafes/new">
-            <Cafe />
+            <CreateCafe />
           </Route>
         </Switch>
       )}

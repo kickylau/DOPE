@@ -2,9 +2,14 @@ import { csrfFetch } from "./csrf";
 const ADD_CAFES = 'cafes/addCafes';
 const ADD_ONE_CAFE = 'cafes/addOneCafe';
 const REMOVE_ONE_CAFE = 'cafes/removeOneCafe';
-const UPDATE_CAFE = "cafes/updateCafe";
+const UPDATE_CAFE = "cafes/updateOneCafe";
 
-
+const updateOneCafe = (payload) => {
+    return {
+        type: UPDATE_CAFE,
+        payload
+    }
+}
 
 const addCafes = (payload) => {
     return {
@@ -21,7 +26,9 @@ const addOneCafe = (payload) => {
 };
 
 const removeOneCafe = (id) => {
-    return { type: REMOVE_ONE_CAFE, payload: id };
+    return {
+        type: REMOVE_ONE_CAFE,
+        payload: id };
 };
 
 export const getAllCafes = () => async (dispatch) => {
@@ -33,7 +40,7 @@ export const getAllCafes = () => async (dispatch) => {
 };
 
 export const addCafe = (cafe) => async (dispatch) => {
-    const response = await csrfFetch('/api/cafes', {
+    const response = await csrfFetch('/api/cafes/new', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cafe)
@@ -56,7 +63,7 @@ export const updateCafe = (payload) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         const updatedCafe = data.cafe
-        dispatch(updateCafe(updatedCafe))
+        dispatch(updateOneCafe(updatedCafe))
     }
 }
 
@@ -66,8 +73,8 @@ export const deleteCafe = (id) => async (dispatch) => {
     });
 
     if (response.ok) {
-        const data = await response.json()
-        console.log(data)
+        //const data = await response.json()
+        //console.log(data)
         dispatch(removeOneCafe(id));
     }
 };
