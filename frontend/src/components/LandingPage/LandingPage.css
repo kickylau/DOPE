@@ -20,6 +20,14 @@ h3 {
 }
 
 
-a {
+/* a {
     text-align: center;
+} */
+
+ a {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        height: auto;
 }

@@ -12,9 +12,13 @@ function LandingPage() {
     return (
         <div className="landingpage">
             <h1>Welcome to DOPE!  </h1>
-            <h2>Your ultimate NYC Puppy Cafe Direction</h2>
-            <h3>(Say HI to Geogie!)</h3>
-            <a><img src="https://i.ibb.co/xjbPMsS/IMG-5337.jpg" alt="goergie" /></a>
+            <h2>Your Ultimate NYC Puppy Cafe Destination</h2>
+            <h3>(Say HI to Georgie!)</h3>
+            {/* <img src="georgie.gif" alt="georgie" className="georgie" />
+            <a><img src="https://i.ibb.co/xjbPMsS/IMG-5337.jpg" alt="goergie" className="georgie" /></a> */}
+            <a>
+                <img src="https://s7.gifyu.com/images/georgie.gif" alt="georgie.gif" border="0" />
+                </a>
         </div>
     )
 }
