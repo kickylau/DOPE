@@ -17,7 +17,7 @@ function LandingPage() {
             {/* <img src="georgie.gif" alt="georgie" className="georgie" />
             <a><img src="https://i.ibb.co/xjbPMsS/IMG-5337.jpg" alt="goergie" className="georgie" /></a> */}
             <a>
-                <img src="https://s7.gifyu.com/images/georgie.gif" alt="georgie.gif" border="0" />
+                <img src="https://s7.gifyu.com/images/georgie.gif" className="georgie" alt="georgie.gif" border="0" />
                 </a>
         </div>
     )
