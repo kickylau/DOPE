@@ -1,0 +1,25 @@
+h1 {
+    color:pink;
+    font-family: verdana;
+    margin-top: 80px;
+    text-align: center;
+}
+
+
+h2 {
+    color:lightpink;
+    font-family: verdana;
+    text-align: center;
+}
+
+
+h3 {
+    color:lightpink;
+    font-family: verdana;
+    text-align: center;
+}
+
+
+a {
+    text-align: center;
+}

@@ -8,7 +8,8 @@ import Navigation from "./components/Navigation";
 import Cafe from "./components/Cafe";
 import CreateCafe from "./components/Cafe/CreateCafe";
 import UpdateCafe from "./components/Cafe/UpdateCafe";
-import LandingPage from "./components/LandingPage";
+import LandingPage from "./components/LandingPage/LandingPage.js";
+
 
 
 function App() {
@@ -23,9 +24,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
-          {/* <Route path="/">
-            <LandingPage/>
-          </Route> */}
+          <Route exact path="/">
+           <LandingPage />
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>
