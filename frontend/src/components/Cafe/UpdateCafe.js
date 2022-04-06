@@ -5,19 +5,25 @@ import { updateCafe } from "../../store/cafes";
 
 
 
-function UpdateCafe({ cafe }) {
+function UpdateCafe({currentcafe}) {
+    //console.log(cafe)
+    const {id} = useParams()
+    const currentCafe = useSelector(state => Object.values(state.cafe))
+    //console.log(currentCafe)
+    //grab the cafe object to pass into the component??
     const dispatch = useDispatch();
     const history = useHistory();
-    const [title, setTitle] = useState(cafe?.title);  //conditional chaining
-    const [description, setDescription] = useState(cafe?.description);
-    const [address, setAddress] = useState(cafe?.address);
-    const [city, setCity] = useState(cafe?.city);
-    const [zipCode, setZipCode] = useState(cafe?.zipCode);
-    const [img, setImg] = useState(cafe?.img);
+    const [title, setTitle] = useState(currentCafe?.title);  //conditional chaining
+    const [description, setDescription] = useState(currentcafe?.description);
+    const [address, setAddress] = useState(currentcafe?.address);
+    const [city, setCity] = useState(currentcafe?.city);
+    const [zipCode, setZipCode] = useState(currentCafe?.zipCode);
+    const [img, setImg] = useState(currentCafe?.img);
     const [errors, setErrors] = useState([]);
     const sessionUser = useSelector((state)=>state.session.user)
+
     //console.log(sessionUser)
-    const {id} = useParams()
+
     //console.log(id)
 
     const handleSubmit = async (e) => {
@@ -37,6 +43,9 @@ function UpdateCafe({ cafe }) {
         };
 
         //console.log(payload)
+        //return the updatedCafe,
+        //your createOne variable in your handleSubmit will always be undefined
+        //unless you return something in your updateCafe thunk
         const createOne = await dispatch(updateCafe(payload));
         if (createOne){
             history.push('/cafes');

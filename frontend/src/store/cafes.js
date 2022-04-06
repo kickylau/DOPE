@@ -68,6 +68,9 @@ export const updateCafe = (payload) => async (dispatch) => {
         return updatedCafe;
     }
 }
+        //return the updatedCafe,
+        //your createOne variable in your handleSubmit will always be undefined
+        //unless you return something in your updateCafe thunk
 
 export const deleteCafe = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/cafes/${id}`, {
