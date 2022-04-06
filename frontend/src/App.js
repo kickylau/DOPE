@@ -9,7 +9,8 @@ import Cafe from "./components/Cafe";
 import CreateCafe from "./components/Cafe/CreateCafe";
 import UpdateCafe from "./components/Cafe/UpdateCafe";
 import LandingPage from "./components/LandingPage/LandingPage.js";
-
+import CommentPage from "./components/CommentPage"
+import CreateComment from "./components/CommentPage/CreateComment"
 
 
 function App() {
@@ -41,6 +42,12 @@ function App() {
           </Route>
           <Route path="/cafes/:id/edit">
             <UpdateCafe />
+          </Route>
+          <Route path="/cafes/:id/comments">
+            <CommentPage />
+          </Route>
+          <Route path="/cafes/:id/comments/new">
+            <CreateComment />
           </Route>
         </Switch>
       )}
