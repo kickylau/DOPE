@@ -66,3 +66,16 @@ ul {
     background-color: lightpink;
     color: white;
   }
+/*
+  .landing{
+    color: pink;
+    size:150px;
+  } */
+
+
+  .georgie {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }

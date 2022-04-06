@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Cafe from "./components/Cafe";
 import CreateCafe from "./components/Cafe/CreateCafe";
 import UpdateCafe from "./components/Cafe/UpdateCafe";
+import LandingPage from "./components/LandingPage";
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          {/* <Route path="/">
+            <LandingPage/>
+          </Route> */}
           <Route path="/login">
             <LoginFormPage />
           </Route>
@@ -37,7 +41,6 @@ function App() {
           <Route path="/cafes/:id/edit">
             <UpdateCafe />
           </Route>
-
         </Switch>
       )}
     </>

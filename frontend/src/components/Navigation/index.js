@@ -31,7 +31,7 @@ function Navigation({ isLoaded }) {
 
       <ul>
         <li>
-          <NavLink exact to="/cafes">Home</NavLink>
+          <NavLink exact to="/cafes">Discover Cafes</NavLink>
           {isLoaded && sessionLinks}
         </li>
         <li>
@@ -39,7 +39,7 @@ function Navigation({ isLoaded }) {
           {isLoaded}
         </li>
       </ul>
-    
+
   );
 }
 
