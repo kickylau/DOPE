@@ -55,7 +55,7 @@ const CreateCafe = () => {
 
   if (sessionUser) {
     return (
-      <a>
+
       <div className='add-cafe'>
       <h3>Add A Cafe</h3>
       <form onSubmit={handleSubmit} className='add-cafe'>
@@ -107,7 +107,7 @@ const CreateCafe = () => {
         </button>
       </form>
     </div>
-    </a>)
+    )
         } else {
           return (<h2>PLEASE LOG IN FIRST TO CREATE </h2>)
       }

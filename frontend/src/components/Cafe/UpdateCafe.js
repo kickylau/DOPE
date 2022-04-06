@@ -66,7 +66,7 @@ function UpdateCafe({currentcafe}) {
         // <h3>Edit A Cafe</h3>
        if (sessionUser) {
            return (
-               <a>
+
             <div className='edit-cafe'>
             <h3>Edit A Cafe</h3>
            <form onSubmit={handleSubmit} className='edit-cafe'>
@@ -143,7 +143,7 @@ function UpdateCafe({currentcafe}) {
 
         </form>
         </div>
-        </a>)
+        )
        } else {
             return (<h2>PLEASE LOG IN FIRST TO UPDATE </h2>)
         }

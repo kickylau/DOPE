@@ -28,7 +28,7 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
    }
 
   return (
-    <a>
+
     <div className='cafe-detail'>
       <img src={img} className='cafe-img' id="img" />
       <span className='cafe-title'>{title}</span>
@@ -42,7 +42,7 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
         </button>
         <button onClick={openEdit} className='update-button'>Update</button>
       </div>
-    </div></a>
+    </div>
   );
 };
 export default CafeDetail;
