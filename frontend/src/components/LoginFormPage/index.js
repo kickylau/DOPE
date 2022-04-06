@@ -65,10 +65,10 @@ function LoginFormPage() {
           required
         />
       </label>
-      <button type="demo">Demo User</button>
+      <button type="demo" onClick={demo}>Demo User</button>
       <button type="submit">Log In</button>
     </form>
-    
+
   );
 }
 
