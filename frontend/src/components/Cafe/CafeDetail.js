@@ -12,35 +12,42 @@ const CafeDetail = () => {
   //const cafe = { id,img,title,description,address,city,zipCode}
   const dispatch = useDispatch();
   //const [toggleEdit, setToggleEdit] = useState(false);
-  const {cafe} = useParams()
-  console.log({cafe})
+  const {id} = useParams()
+  //console.log({cafe})
   const history = useHistory();
   const sessionUser = useSelector((state)=>state.session.user)
-  const cafeId = cafe.id
+
+  //const cafeId = cafe.id
+    const currentCafe = useSelector((state)=>state.cafe[id])
+    const { img,title,description,address,city,zipCode} = currentCafe
+    //same as currentCafe.img .title etc ...
 
 
-  const handleDelete = ({cafeId}) => {
+  //console.log(currentCafe,"HERE")
+
+
+  const handleDelete = ({currentCafe}) => {
     if(sessionUser){
-      dispatch(deleteCafe({cafe.id}));
+      dispatch(deleteCafe({currentCafe}));
     } else {
       history.push('/login');
     }
   };
 
    const openEdit = () => {
-     history.push(`/cafes/${cafe.id}/edit`)
+     history.push(`/cafes/${id}/edit`)
   //    setToggleEdit(!toggleEdit)
    }
 
   return (
 
     <div className='cafe-detail'>
-      <img src={img} className='cafe-img' id="img" />
-      <span className='cafe-title'>{cafe.title}</span>
+      <img src={currentCafe.img} className='cafe-img' id="img" />
+      <span className='cafe-title'>{title}</span>
       <span className='cafe-description'>{description}</span>
-      <span className='cafe-address' >Address{address}</span>
-      <span className = 'cafe-city'>City{city}</span>
-      <span className = 'cafe-zipCode'>ZipCode{zipCode}</span>
+      <span className='cafe-address' >Address:{address}</span>
+      <span className = 'cafe-city'>City:{city}</span>
+      <span className = 'cafe-zipCode'>ZipCode:{zipCode}</span>
       <div className='button-row'>
 
         <button onClick={() => handleDelete(id)} className='delete-button'>

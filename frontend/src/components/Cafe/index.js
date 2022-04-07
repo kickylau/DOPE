@@ -15,18 +15,18 @@ const Cafe = () => {
   }, [dispatch]);
 
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
-  }
+  // const openMenu = () => {
+  //   if (showMenu) return;
+  //   setShowMenu(true);
+  // }
 
-  useEffect(() => {
-    if (!showMenu) return;
-    const closeMenu = () => {
-      setShowMenu(false);
-    }
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+  // useEffect(() => {
+  //   if (!showMenu) return;
+  //   const closeMenu = () => {
+  //     setShowMenu(false);
+  //   }
+  //   return () => document.removeEventListener("click", closeMenu);
+  // }, [showMenu]);
 
 
   return (

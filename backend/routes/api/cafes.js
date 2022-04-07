@@ -87,7 +87,7 @@ router.get(
 
 router.put(
   '/:id(\\d+)',
-  validateCafe,
+  //validateCafe,
   asyncHandler(async (req, res, next) => {
     const cafe = await Cafe.findByPk(req.params.id);
 
