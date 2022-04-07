@@ -6,26 +6,29 @@ import {useState} from "react"
 import "./CafePage.css"
 //import Answer from "../CommentPage/index"
 import CreateComment from '../CommentPage/CreateComment';
+import { useParams } from 'react-router-dom';
 
-const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
-  const cafe = { id,img,title,description,address,city,zipCode}
+const CafeDetail = () => {
+  //const cafe = { id,img,title,description,address,city,zipCode}
   const dispatch = useDispatch();
   //const [toggleEdit, setToggleEdit] = useState(false);
-
+  const {cafe} = useParams()
+  console.log({cafe})
   const history = useHistory();
   const sessionUser = useSelector((state)=>state.session.user)
+  const cafeId = cafe.id
 
 
-  const handleDelete = (id) => {
+  const handleDelete = ({cafeId}) => {
     if(sessionUser){
-      dispatch(deleteCafe(id));
+      dispatch(deleteCafe({cafe.id}));
     } else {
       history.push('/login');
     }
   };
 
    const openEdit = () => {
-     history.push(`/cafes/${id}/edit`)
+     history.push(`/cafes/${cafe.id}/edit`)
   //    setToggleEdit(!toggleEdit)
    }
 
@@ -33,7 +36,7 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
 
     <div className='cafe-detail'>
       <img src={img} className='cafe-img' id="img" />
-      <span className='cafe-title'>{title}</span>
+      <span className='cafe-title'>{cafe.title}</span>
       <span className='cafe-description'>{description}</span>
       <span className='cafe-address' >Address{address}</span>
       <span className = 'cafe-city'>City{city}</span>
