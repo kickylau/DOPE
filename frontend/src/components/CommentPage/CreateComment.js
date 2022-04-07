@@ -5,12 +5,13 @@ import { useHistory } from 'react-router-dom';
 
 //import under cafedetail
 
-const CreateComment = ({cafe}) => {
+const CreateComment = ({currentCafe}) => {
     const [answer, setAnswer] = useState('');
     const [errors, setErrors] = useState([])
     const sessionUser = useSelector((state) => state.session.user)
 
-    const currentCafe = useSelector(state => Object.values(state.cafe))
+    //const currentCafe = useSelector(state => Object.values(state.cafe))
+    //either prop or useSelector
     //console.log(cafe)
     const history = useHistory();
     const dispatch = useDispatch();
@@ -25,12 +26,14 @@ const CreateComment = ({cafe}) => {
         const payload = {
             userId: sessionUser.id,
             answer,
-            businessId:cafe.id
+            businessId:currentCafe.id
+            //cafe is undefined the cafe property is empty
         };
+
 
         const createOne = await dispatch(addComment(payload));
         if (createOne) {
-            history.push(`/cafes/${cafe.id}`);
+            history.push(`/cafes/${currentCafe.id}`);
             setAnswer("")
         }
     };
@@ -40,17 +43,16 @@ const CreateComment = ({cafe}) => {
         return (
 
             <div className='add-comment'>
-                <h3>Add A Comment</h3>
+                {/* <h3>Add A Comment</h3> */}
                 <form onSubmit={handleSubmit} className='add-a-comment'>
-                    Comment
                     <input
                         onChange={(e) => setAnswer(e.target.value)}
                         value={answer}
-                        placeholder='Answer'
+                        placeholder='Add a review here'
                         required
                     />
                     <button className='submit-button' type='submit'>
-                        Add Comment
+                        Add Review
                     </button>
                     <button type="button" className='cancel-button' onClick={handleCancelClick}>
                         Cancel

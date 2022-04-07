@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import "./CafePage.css"
 //import Answer from "../CommentPage/index"
 import { useParams } from 'react-router-dom';
-import { getAllComments,addComment,deleteComment } from '../../store/comment';
+import { getAllComments, addComment, deleteComment } from '../../store/comment';
 import CreateComment from '../CommentPage/CreateComment';
 
 const CafeDetail = () => {
@@ -17,16 +17,21 @@ const CafeDetail = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user)
   const currentCafe = useSelector((state) => state.cafe[+id])
+
+  //console.log(currentCafe, "CURRENT CAFE")
+
   //its a string here instead of integer
-  const answers = useSelector((state) => state.answer)
-  console.log("answers", answers)
+  const comments = useSelector((state) => state.comment)
+  //find the state what it goes it, useSelector grabbing from the state
+  //console.log("comments", comments)
   //its undefined
   useEffect(() => {
     dispatch(getAllCafes())
+    //then look at the function
     dispatch(getAllComments(+id))
-  }, [dispatch,id])
+  }, [dispatch, id])
 
-  if(!currentCafe){
+  if (!currentCafe) {
     return null;
   }
 
@@ -36,8 +41,6 @@ const CafeDetail = () => {
 
 
   //console.log(currentCafe,"CURRENT CAFE HERE ")
-
-
 
   // if(!answers){
   //   return null;
@@ -81,27 +84,24 @@ const CafeDetail = () => {
           Delete
         </button>
         <button onClick={openEdit} className='update-button'>Update</button>
-        {/* <div>
-          <Comment />
-        </div> */}
       </div>
-      {/* <div>
-        <h2>COMMENTS</h2>
+
+      <div>
+        <h2>Reviews</h2>
 
         <CreateComment currentCafe={currentCafe} />
-        {answers?.map((answer)=>{
-          if (sessionUser){
-            if (sessionUser.id === answer.userId){
-              <button className="delete-comment" onClick={()=>{
-                dispatch(deleteComment(answer))
-              }}> Delete Comment</button>
-            }
+        {Object.values(comments)?.map((comment) => (
+          <div>
+            <span>
+            {comment.answer}
+          </span>
+          {(+sessionUser.id === +comment.userId) && (
+            <button className="delete-comment">Delete</button>
+          )
           }
-        })}
-      </div> */}
-
-
-
+          </div>
+        ))}
+      </div>
     </div>
 
   );

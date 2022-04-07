@@ -39,16 +39,16 @@ export const getAllComments = (id) => async (dispatch) => {
     }
 };
 
-export const addComment = (id) => async (dispatch) => {
+export const addComment = (comment) => async (dispatch) => {
     const response = await csrfFetch(`/api/reviews/new`, {
         method: 'POST',
         //headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(id)
+        body: JSON.stringify(comment)
     });
 
     if (response.ok) {
         const data = await response.json();
-        //console.log('add', data);
+        console.log('add', data);
         dispatch(addOneComment(data));
         return response;
     }
@@ -83,7 +83,6 @@ const commentReducer = (state = {}, action) => {
     switch (action.type) {
         case ADD_COMMENTS:
             newState = {...action.answers }
-            //(newState[answer.id] = answer);
             return newState;
         case ADD_ONE_COMMENT:
             newState = { ...state, [action.payload.id]: action.payload };

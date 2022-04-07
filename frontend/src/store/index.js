@@ -9,6 +9,7 @@ const rootReducer = combineReducers({
   session:sessionReducer,
   cafe:cafeReducer,
   comment:commentReducer,
+  //is this key in correctly?  check redux tool: check inspector->state 
 });
 
 let enhancer;

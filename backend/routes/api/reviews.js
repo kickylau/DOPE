@@ -94,7 +94,7 @@ router.post(
 
     //console.log(req.body)
     const response = await Review.create({ userId, businessId, answer});
-    return res.json({answer});
+    return res.json(response);
   })
 );
 
