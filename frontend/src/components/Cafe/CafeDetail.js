@@ -33,9 +33,9 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
       <img src={img} className='cafe-img' id="img" />
       <span className='cafe-title'>{title}</span>
       <span className='cafe-description'>{description}</span>
-      <span className='cafe-address' >Address:{address}</span>
-      <span className = 'cafe-city'>City:{city}</span>
-      <span className = 'cafe-zipCode'>ZipCode:{zipCode}</span>
+      <span className='cafe-address' >{address}</span>
+      <span className = 'cafe-city'>{city}</span>
+      <span className = 'cafe-zipCode'>{zipCode}</span>
       <div className='button-row'>
         <button onClick={() => handleDelete(id)} className='delete-button'>
           Delete

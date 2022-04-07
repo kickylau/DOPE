@@ -20,14 +20,14 @@ const Cafe = () => {
                 id={id}
                 img={img}
                 title={title}
-                description={description}
-                address={address}
-                city={city}
-                zipCode={zipCode}
+                // description={description}
+                // address={address}
+                // city={city}
+                // zipCode={zipCode}
               />
             ))}
           </div>
-        
+
       );
     };
   export default Cafe;
