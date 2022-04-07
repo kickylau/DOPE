@@ -40,7 +40,7 @@ export const getAllComments = (id) => async (dispatch) => {
 };
 
 export const addComment = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/reviews/cafes/${id}/new`, {
+    const response = await csrfFetch(`/api/reviews/new`, {
         method: 'POST',
         //headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(id)

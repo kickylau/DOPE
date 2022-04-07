@@ -48,10 +48,10 @@ function App() {
           <Route path="/cafes/:id/edit">
             <UpdateCafe />
           </Route>
-           <Route exact path="/cafes/:id/comments">
+           {/* <Route exact path="reviews/cafes/:id/">
             <CreateComment />
-          </Route>
-           <Route path="/cafes/:id/comments/new">
+          </Route> */}
+           <Route path="reviews/new">
             <CreateComment />
           </Route>
         </Switch>
