@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 //import UpdateCafe from "./UpdateCafe";
 import {useState} from "react"
 import "./CafePage.css"
+import Answer from "../CommentPage";
+import { getAllComments,addComment,deleteComment } from '../../store/comment';
 
 const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
   const cafe = { id,img,title,description,address,city,zipCode}
@@ -42,7 +44,16 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
         </button>
         <button onClick={openEdit} className='update-button'>Update</button>
       </div>
+       <div>
+<h2>COMMENTS</h2>
+{/* <Answer/> */}
+
+       </div>
+
+
+
     </div>
+
   );
 };
 export default CafeDetail;
