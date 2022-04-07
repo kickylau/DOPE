@@ -1,10 +1,12 @@
 // import { useDispatch, useSelector } from 'react-redux';
-// import { deleteComment } from '../../store/comment';
+// import { addComment, deleteComment } from '../../store/comment';
 // import { useHistory } from 'react-router-dom';
-// import {useState} from "react"
+// //import {useState} from "react"
 // import "./CommentPage.css"
+// import cafeReducer from '../../store/cafes';
+// import React, {useState} from "react";
 
-// const CommentDetail = ({ id,userId,businessId,answer}) => {
+// const Comment = ({ cafe}) => {
 //   //const answer = { id,userId,businessId,answer}
 //   const dispatch = useDispatch();
 //   const history = useHistory();
@@ -22,9 +24,20 @@
 
 
 
+//   const handleSubmit = async e => {
+//     e.preventDefault();
+//     const payload = {
+//       cafeId : cafe.id,
+//       userId : sessionUser.id
+//     }
+
+//     await dispatch(addComment(payload))
+//     history.push(`/cafes/${cafe.id}`)
+//   }
+
 //   return (
 
-//     <form className="commentform" >
+//     <form onSubmit={handleSubmit} className="commentform" >
 //     <label>
 //       Comment
 //       <input
@@ -42,4 +55,4 @@
 //       </form>
 //   );
 // };
-// export default CommentDetail;
+// export default Comment;

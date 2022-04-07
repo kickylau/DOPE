@@ -4,6 +4,8 @@ import { addCafe } from '../../store/cafes';
 import { useHistory } from 'react-router-dom';
 
 const CreateCafe = () => {
+  //console.log("ENTER CREATE CAFE")
+  //routing issue
   const [img, setImg] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -17,6 +19,7 @@ const CreateCafe = () => {
   //console.log(cafe)
   const history = useHistory();
   const dispatch = useDispatch();
+
   const handleCancelClick = (e) => {
     e.preventDefault()
     history.push("/cafes")
@@ -36,8 +39,9 @@ const CreateCafe = () => {
     };
 
     const createOne = await dispatch(addCafe(payload));
+    console.log(payload)
     if (createOne){
-        history.push('/cafes');
+        history.push(`/cafes/`);
     }
 
     //reset();

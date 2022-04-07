@@ -6,10 +6,12 @@ const REMOVE_ONE_COMMENT = 'comments/removeOneComment';
 //const cafeId = cafe.id
 
 
-const addComments = (payload) => {
+const addComments = (payload,businessId) => {
+    console.log(payload)
     return {
         type: ADD_COMMENTS,
-        payload
+        payload,
+        businessId,
     };
 };
 
@@ -20,25 +22,27 @@ const addOneComment = (payload) => {
     };
 };
 
-const removeOneComment = (id) => {
+const removeOneComment = (payload,businessId,) => {
     return {
         type: REMOVE_ONE_COMMENT,
-        payload: id };
+        payload,
+        businessId,
+     };
 };
 
-export const getAllComments = () => async (dispatch) => {
-    const response = await csrfFetch(`/api/comments`);
+export const getAllComments = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/cafes/${id}/comments`);
     if (response.ok) {
         const data = await response.json();
-        dispatch(addComments(data));
+        dispatch(addComments(data,id));
     }
 };
 
-export const addComment = (answer) => async (dispatch) => {
-    const response = await csrfFetch(`/api/comments/new`, {
+export const addComment = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/cafes/${id}/comments/new`, {
         method: 'POST',
         //headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(answer)
+        body: JSON.stringify(id)
     });
 
     if (response.ok) {
@@ -54,7 +58,7 @@ export const addComment = (answer) => async (dispatch) => {
 
 
 export const deleteComment = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/cafes/${id}`, {
+    const response = await csrfFetch(`/api/comments/${id}`, {
         method: 'DELETE'
     });
 
@@ -62,6 +66,7 @@ export const deleteComment = (id) => async (dispatch) => {
         //const data = await response.json()
         //console.log(data)
         dispatch(removeOneComment(id));
+        //what should i key in?
     }
 };
 

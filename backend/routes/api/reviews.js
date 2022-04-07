@@ -28,22 +28,50 @@ const validateReview = [
     handleValidationErrors
 ];
 
-//Review Routes
+const validateCafe = [
+    check('img')
+      .notEmpty()
+      .isURL({ require_protocol: false, require_host: false }),
+    check('title')
+      .not().isEmpty()
+      .isLength({ min: 4 })
+      .withMessage('Please provide a title with at least 4 characters.'),
+    check('description')
+      .not().isEmpty()
+      .isLength({ min: 10 })
+      .withMessage('Please provide a title with at least 10 characters.'),
+    check('address')
+      .not().isEmpty()
+      .isLength({ min: 10 })
+      .withMessage('Please provide a title with at least 10 characters.'),
+    check('city').not()
+      .not().isEmpty()
+      .isLength({ min: 4 })
+      .withMessage('Please provide a title with at least 4 characters.'),
+    check('zipCode')
+      .not().isEmpty()
+      .isLength({ min: 5 })
+      .withMessage('Please provide a title with at least 5 characters.'),
+    handleValidationErrors
+  ];
 
-router.get(
-    '/comments',
-    asyncHandler(async (req, res) => {
-        const answers = await Review.findAll({
-            order: [["createdAt", "DESC"]]
-        });
-        //res.send("HELLO")
-        return res.json({ answer });
-    })
-);
+
+// //Review Routes
+
+// router.get(
+//     '/comments',
+//     asyncHandler(async (req, res) => {
+//         const answers = await Review.findAll({
+//             order: [["createdAt", "DESC"]]
+//         });
+//         //res.send("HELLO")
+//         return res.json({ answer });
+//     })
+// );
 
 
 router.post(
-    '/comments/new',
+    '/:id(\\d+)/comments/new',
     validateCafe,
     validateReview,
     asyncHandler(async (req, res) => {
@@ -51,12 +79,12 @@ router.post(
         const answer = await Review.create(req.body);
         return res.json(answer);
     })
-);
+  );
 
 
 
-router.get(
-    '/comments/:id(\\d+)',
+  router.get(
+    '/:id(\\d+)',
     asyncHandler(async (req, res, next) => {
         const answer = await Review.findByPk(req.params.id);
         if (answer) {
@@ -65,12 +93,13 @@ router.get(
             next(reviewNotFoundError(req.params.id));
         }
     })
-);
+  );
+
 
 
 
 router.delete(
-    '/comments/:id(\\d+)', asyncHandler(async (req, res, next) => {
+    '/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const answer = await Review.findByPk(req.params.id);
     if (answer) {
         await answer.destroy();
