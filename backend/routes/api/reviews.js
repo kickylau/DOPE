@@ -68,29 +68,32 @@ router.get(
 
 
 
-//failed
+//goodtogo
 //api/reviews/cafes/:id
 router.get(
   '/cafes/:businessId',
   asyncHandler(async (req, res) => {
-    const businessId = req.params.businessId;
-    //const businessId = parseInt(id, 10)
+    const businessId = +req.params.businessId;
+    //OR const businessId = parseInt(req.params.businessId, 10)
     const answers = await Review.findAll({
-      where: { businessId: id }
+      where: { businessId }
     });
     //res.send("HELLO")
     return res.json({ answers });
   })
 );
 
-//failed
+//goodtogo
 router.post(
   '/new',
   //validateCafe,
   //validateReview,
   asyncHandler(async (req, res) => {
-    //const { answer} = req.body;
-    const answer = await Review.create(req.body);
+    const { userId, businessId, answer} = req.body;
+    console.log(userId, businessId,answer)
+
+    //console.log(req.body)
+    const response = await Review.create({ userId, businessId, answer});
     return res.json({answer});
   })
 );

@@ -6,12 +6,11 @@ const REMOVE_ONE_COMMENT = 'comments/removeOneComment';
 //const cafeId = cafe.id
 
 
-const addComments = (payload,businessId) => {
+const addComments = (answers) => {
     //console.log(payload)
     return {
         type: ADD_COMMENTS,
-        payload,
-        businessId,
+        answers,
     };
 };
 
@@ -32,16 +31,16 @@ const removeOneComment = (payload,businessId,) => {
 
 export const getAllComments = (id) => async (dispatch) => {
     //this is getting all comments for one single cafe
-    const response = await csrfFetch(`/api/cafes/${id}/comments`);
+    const response = await csrfFetch(`/api/reviews/cafes/${id}`);
     if (response.ok) {
         const data = await response.json();
         console.log(data,"DATA HERE")
-        dispatch(addComments(data,id));
+        dispatch(addComments(data.answers));
     }
 };
 
 export const addComment = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/cafes/${id}/comments/new`, {
+    const response = await csrfFetch(`/api/reviews/cafes/${id}/new`, {
         method: 'POST',
         //headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(id)
@@ -83,7 +82,8 @@ const commentReducer = (state = {}, action) => {
     let newState = {};
     switch (action.type) {
         case ADD_COMMENTS:
-            action.payload.forEach((answer) => (newState[answer.id] = answer));
+            newState = {...action.answers }
+            //(newState[answer.id] = answer);
             return newState;
         case ADD_ONE_COMMENT:
             newState = { ...state, [action.payload.id]: action.payload };

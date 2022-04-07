@@ -21,24 +21,29 @@ const CafeDetail = () => {
   const answers = useSelector((state) => state.answer)
   console.log("answers", answers)
   //its undefined
-
-  const { img, title, description, address, city, zipCode } = currentCafe
-  //same as currentCafe.img .title etc ...
-
   useEffect(() => {
     dispatch(getAllCafes())
     dispatch(getAllComments(+id))
   }, [dispatch,id])
-  
+
   if(!currentCafe){
     return null;
   }
 
-  if(!answers){
-    return null;
-  }
+  const { img, title, description, address, city, zipCode } = currentCafe
+  //same as currentCafe.img .title etc ...
 
-  console.log(currentCafe,"HERE")
+
+
+  //console.log(currentCafe,"CURRENT CAFE HERE ")
+
+
+
+  // if(!answers){
+  //   return null;
+  // }
+
+  //console.log(currentCafe,"HERE")
 
   //have to be consistent with what you key in
   const handleDelete = (id) => {
@@ -80,9 +85,9 @@ const CafeDetail = () => {
           <Comment />
         </div> */}
       </div>
-      <div>
+      {/* <div>
         <h2>COMMENTS</h2>
-        {/* <Answer/> */}
+
         <CreateComment currentCafe={currentCafe} />
         {answers?.map((answer)=>{
           if (sessionUser){
@@ -93,7 +98,7 @@ const CafeDetail = () => {
             }
           }
         })}
-      </div>
+      </div> */}
 
 
 
