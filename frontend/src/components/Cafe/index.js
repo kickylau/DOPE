@@ -35,7 +35,7 @@ const Cafe = () => {
       {/* <div className="column"> */}
       {cafe?.map(({ id, img, title, description, address, city, zipCode }) => {
         return (
-          <div className="card">
+          <div className="gallery_info">
             <Link key={id} to={`/cafes/${id}`}>
               <div>
                 <figure><img src={img} className ="gallery_img" alt=""></img></figure>
@@ -43,11 +43,11 @@ const Cafe = () => {
               <div>{title}</div>
             </Link>
 
-            )
+
             <div>{description}</div>
-            <div>{address}</div>
+            {/* <div>{address}</div>
             <div>{city}</div>
-            <div>{zipCode}</div>
+            <div>{zipCode}</div> */}
           </div>
         )
       })}
