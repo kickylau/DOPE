@@ -1,4 +1,5 @@
 import { csrfFetch } from "./csrf";
+//import { useSelector, useDispatch } from 'react-redux';
 const ADD_CAFES = 'cafes/addCafes';
 const ADD_ONE_CAFE = 'cafes/addOneCafe';
 const REMOVE_ONE_CAFE = 'cafes/removeOneCafe';
@@ -92,7 +93,8 @@ export const updateCafe = (payload) => async (dispatch) => {
 //unless you return something in your updateCafe thunk
 
 export const deleteCafe = (id) => async (dispatch) => {
-    console.log(id)
+    //const cafe = useSelector((state) => Object.values(state.cafe[id]));
+    console.log(id,"where are you")
     const response = await csrfFetch(`/api/cafes/${id}`, {
         method: 'DELETE'
     });

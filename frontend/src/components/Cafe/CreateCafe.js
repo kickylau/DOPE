@@ -4,6 +4,8 @@ import { addCafe } from '../../store/cafes';
 import { useHistory } from 'react-router-dom';
 
 const CreateCafe = () => {
+  //console.log("ENTER CREATE CAFE")
+  //routing issue
   const [img, setImg] = useState('');
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');

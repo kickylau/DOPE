@@ -37,12 +37,14 @@ function App() {
           <Route exact path="/cafes">
             <Cafe />
           </Route>
-          <Route exact path="/cafes/:id">
-            <CafeDetail />
-          </Route>
           <Route exact path="/cafes/new">
             <CreateCafe />
           </Route>
+          {/* make sure cafes/new go first or else :id is "new" */}
+          <Route exact path="/cafes/:id">
+            <CafeDetail />
+          </Route>
+
           <Route path="/cafes/:id/edit">
             <UpdateCafe />
           </Route>
@@ -59,6 +61,11 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
 
 
 //use this thunk action inside of App.js after the App component's
