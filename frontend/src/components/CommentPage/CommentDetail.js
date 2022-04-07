@@ -20,9 +20,7 @@ const CommentDetail = ({ id,userId,businessId,answer}) => {
     }
   };
 
-   const openEdit = () => {
-     history.push(`/cafes/${id}/comments/${id}/edit`)
-   }
+
 
   return (
 

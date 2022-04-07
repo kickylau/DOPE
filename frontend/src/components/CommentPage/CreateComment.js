@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addComment } from '../../store/comment';
 import { useHistory } from 'react-router-dom';
 
+//import under cafedetail
+
 const CreateComment = () => {
     const [answer, setAnswer] = useState('');
     const [errors, setErrors] = useState([])
@@ -28,7 +30,7 @@ const CreateComment = () => {
 
         const createOne = await dispatch(addComment(payload));
         if (createOne) {
-            history.push('/cafes/:id/new');
+            history.push(`/cafes/:id/new`);
         }
     };
 

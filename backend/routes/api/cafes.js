@@ -118,4 +118,75 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   }
 }));
 
+
+const reviewNotFoundError = (id) => {
+  const err = Error('Review not found');
+  err.errors = [`Review with id of ${id} could not be found.`];
+  err.title = 'Review not found.';
+  err.status = 404;
+  return err;
+};
+
+
+
+const validateReview = [
+  check('answer')
+      .not().isEmpty()
+      .isLength({ min: 5 })
+      .withMessage('Please provide the review with at least 5 characters.'),
+  handleValidationErrors
+];
+
+//Review Routes
+
+router.get(
+  '/:id(\\d+)/comments',
+  asyncHandler(async (req, res) => {
+      const answers = await Review.findAll({
+          order: [["createdAt", "DESC"]]
+      });
+      //res.send("HELLO")
+      return res.json({ answers });
+  })
+);
+
+
+// router.post(
+//   '/:id(\\d+)/comments/new',
+//   validateCafe,
+//   validateReview,
+//   asyncHandler(async (req, res) => {
+//       //const { img,title,ownerId,description,address,city,zipCode} = req.body;
+//       const answer = await Review.create(req.body);
+//       return res.json(answer);
+//   })
+// );
+
+
+
+// router.get(
+//   '/:id(\\d+)/comments/:id(\\d+)',
+//   asyncHandler(async (req, res, next) => {
+//       const answer = await Review.findByPk(req.params.id);
+//       if (answer) {
+//           return res.json({ answer });
+//       } else {
+//           next(reviewNotFoundError(req.params.id));
+//       }
+//   })
+// );
+
+
+
+router.delete(
+  '/:id(\\d+)/comments/:id(\\d+)', asyncHandler(async (req, res, next) => {
+  const answer = await Review.findByPk(req.params.id);
+  if (answer) {
+      await answer.destroy();
+      res.status(204).json({ message: "succeed" });
+  } else {
+      next(reviewNotFoundError(req.params.id));
+  }
+}));
+
 module.exports = router;

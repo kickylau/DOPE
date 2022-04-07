@@ -4,11 +4,14 @@ import { getAllComments } from '../../store/comment';
 import CommentDetail from './CommentDetail';
 
 
-const Answer = () => {
+const Comments = ({answer}) => {
+  //what should i key in?
     const dispatch = useDispatch();
-    const answer = useSelector((state) => Object.values(state.answer));
+    const answers = useSelector((state) => Object.values(state.answer));
+    const cafe = useSelector(state => Object.values(state.cafe))
     useEffect(() => {
-      dispatch(getAllComments());
+      dispatch(getAllComments(cafe.id));
+      //what should i key in?
     }, [dispatch]);
 
     return (
@@ -18,11 +21,11 @@ const Answer = () => {
               <CommentDetail
                 key={id}
                 id={id}
-                answe={answer}
+                answer={answer}
               />
             ))}
           </div>
 
       );
     };
-  export default Answer;
+  export default Comments;

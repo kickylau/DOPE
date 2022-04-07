@@ -17,6 +17,7 @@ const CreateCafe = () => {
   //console.log(cafe)
   const history = useHistory();
   const dispatch = useDispatch();
+
   const handleCancelClick = (e) => {
     e.preventDefault()
     history.push("/cafes")
@@ -37,7 +38,7 @@ const CreateCafe = () => {
 
     const createOne = await dispatch(addCafe(payload));
     if (createOne){
-        history.push('/cafes');
+        history.push(`/cafes/`);
     }
 
     //reset();

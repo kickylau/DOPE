@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 //import UpdateCafe from "./UpdateCafe";
 import {useState} from "react"
 import "./CafePage.css"
+//import Answer from "../CommentPage/index"
+import CreateComment from '../CommentPage/CreateComment';
 
 const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
   const cafe = { id,img,title,description,address,city,zipCode}
@@ -37,6 +39,7 @@ const CafeDetail = ({ id,img,title,description,address,city,zipCode}) => {
       <span className = 'cafe-city'>City:{city}</span>
       <span className = 'cafe-zipCode'>ZipCode:{zipCode}</span>
       <div className='button-row'>
+     
         <button onClick={() => handleDelete(id)} className='delete-button'>
           Delete
         </button>

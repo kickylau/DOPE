@@ -6,9 +6,13 @@ import { updateCafe } from "../../store/cafes";
 
 
 function UpdateCafe({currentcafe}) {
+
     //console.log(cafe)
     const {id} = useParams()
     const currentCafe = useSelector(state => Object.values(state.cafe))
+    //?const currentCafe = useSelector(state => Object.values(state.cafe.id))
+
+
     //console.log(currentCafe)
     //grab the cafe object to pass into the component??
     const dispatch = useDispatch();
@@ -31,7 +35,7 @@ function UpdateCafe({currentcafe}) {
         setErrors([]);
 
         const payload = {
-            //...cafe,
+            //...currentCafe,
             id, //missing the cafe id
             ownerId:sessionUser.id,
             title,
@@ -94,7 +98,7 @@ function UpdateCafe({currentcafe}) {
                     required
                 />
             </label>
-            <label>
+             <label>
                 Description
                 <input
                     type="text"
@@ -102,7 +106,7 @@ function UpdateCafe({currentcafe}) {
                     value={description}
                     placeholder='Description'
                     required
-                /></label>
+                /></label> 
             <label>
                 Address
                 <input
