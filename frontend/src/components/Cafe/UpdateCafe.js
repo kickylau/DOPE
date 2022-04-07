@@ -11,8 +11,7 @@ function UpdateCafe({currentcafe}) {
     const {id} = useParams()
     const currentCafe = useSelector(state => Object.values(state.cafe))
     //?const currentCafe = useSelector(state => Object.values(state.cafe.id))
-
-
+    
     //console.log(currentCafe)
     //grab the cafe object to pass into the component??
     const dispatch = useDispatch();
@@ -29,6 +28,9 @@ function UpdateCafe({currentcafe}) {
     //console.log(sessionUser)
 
     //console.log(id)
+    if(!sessionUser){
+        return null;
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -106,7 +108,7 @@ function UpdateCafe({currentcafe}) {
                     value={description}
                     placeholder='Description'
                     required
-                /></label> 
+                /></label>
             <label>
                 Address
                 <input

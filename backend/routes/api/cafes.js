@@ -139,16 +139,18 @@ const validateReview = [
 
 //Review Routes
 
-router.get(
-  '/:id(\\d+)/comments',
-  asyncHandler(async (req, res) => {
-      const answers = await Review.findAll({
-          order: [["createdAt", "DESC"]]
-      });
-      //res.send("HELLO")
-      return res.json({ answers });
-  })
-);
+//its easier to get all comments on another route would be easier
+//this will go to cafes/:id/comments
+// router.get(
+//   '/:id(\\d+)/comments',
+//   asyncHandler(async (req, res) => {
+//       const answers = await Review.findAll({
+//           order: [["createdAt", "DESC"]]
+//       });
+//       //res.send("HELLO")
+//       return res.json({ answers });
+//   })
+// );
 
 
 // router.post(
@@ -178,15 +180,15 @@ router.get(
 
 
 
-router.delete(
-  '/:id(\\d+)/comments/:id(\\d+)', asyncHandler(async (req, res, next) => {
-  const answer = await Review.findByPk(req.params.id);
-  if (answer) {
-      await answer.destroy();
-      res.status(204).json({ message: "succeed" });
-  } else {
-      next(reviewNotFoundError(req.params.id));
-  }
-}));
+// router.delete(
+//   '/:id(\\d+)/comments/:id(\\d+)', asyncHandler(async (req, res, next) => {
+//   const answer = await Review.findByPk(req.params.id);
+//   if (answer) {
+//       await answer.destroy();
+//       res.status(204).json({ message: "succeed" });
+//   } else {
+//       next(reviewNotFoundError(req.params.id));
+//   }
+// }));
 
 module.exports = router;

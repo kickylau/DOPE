@@ -6,10 +6,10 @@ import Answer from '../CommentPage/CommentDetail';
 import {Link} from "react-router-dom"
 
 
-const Cafe = () => {
+const Cafe = ({sessionUser}) => {
   const dispatch = useDispatch();
   const cafe = useSelector((state) => Object.values(state.cafe));
-  const [showMenu, setShowMenu] = useState(false);
+  //const [showMenu, setShowMenu] = useState(false);
   useEffect(() => {
     dispatch(getAllCafes());
   }, [dispatch]);
@@ -40,11 +40,11 @@ const Cafe = () => {
               <div>
                 <figure><img src={img} className ="gallery_img" alt=""></img></figure>
               </div>
-              <div>{title}</div>
+              <div className = "gallery_name">{title}</div>
             </Link>
 
 
-            <div>{description}</div>
+            <div className ="gallery_info">{description}</div>
             {/* <div>{address}</div>
             <div>{city}</div>
             <div>{zipCode}</div> */}

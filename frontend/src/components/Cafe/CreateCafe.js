@@ -39,7 +39,7 @@ const CreateCafe = () => {
     };
 
     const createOne = await dispatch(addCafe(payload));
-    console.log(payload)
+    //console.log(payload)
     if (createOne){
         history.push(`/cafes/`);
     }

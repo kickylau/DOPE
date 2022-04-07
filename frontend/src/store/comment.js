@@ -7,7 +7,7 @@ const REMOVE_ONE_COMMENT = 'comments/removeOneComment';
 
 
 const addComments = (payload,businessId) => {
-    console.log(payload)
+    //console.log(payload)
     return {
         type: ADD_COMMENTS,
         payload,
@@ -31,9 +31,11 @@ const removeOneComment = (payload,businessId,) => {
 };
 
 export const getAllComments = (id) => async (dispatch) => {
+    //this is getting all comments for one single cafe
     const response = await csrfFetch(`/api/cafes/${id}/comments`);
     if (response.ok) {
         const data = await response.json();
+        console.log(data,"DATA HERE")
         dispatch(addComments(data,id));
     }
 };

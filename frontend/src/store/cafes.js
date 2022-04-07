@@ -75,7 +75,7 @@ export const addCafe = (cafe) => async (dispatch) => {
 
 
 export const updateCafe = (payload) => async (dispatch) => {
-    console.log(payload, "PAYLOAD")
+    //console.log(payload, "PAYLOAD")
     const response = await csrfFetch(`/api/cafes/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -94,7 +94,7 @@ export const updateCafe = (payload) => async (dispatch) => {
 
 export const deleteCafe = (id) => async (dispatch) => {
     //const cafe = useSelector((state) => Object.values(state.cafe[id]));
-    console.log(id,"where are you")
+    //console.log(id,"where are you")
     const response = await csrfFetch(`/api/cafes/${id}`, {
         method: 'DELETE'
     });

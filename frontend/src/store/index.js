@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import commentReducer from "./comment.js";
 import sessionReducer from "./session.js"
 import cafeReducer from "./cafes.js";
 
@@ -7,6 +8,7 @@ const rootReducer = combineReducers({
   // add reducer functions here
   session:sessionReducer,
   cafe:cafeReducer,
+  comment:commentReducer,
 });
 
 let enhancer;

@@ -5,12 +5,12 @@ import { useHistory } from 'react-router-dom';
 
 //import under cafedetail
 
-const CreateComment = () => {
+const CreateComment = ({cafe}) => {
     const [answer, setAnswer] = useState('');
     const [errors, setErrors] = useState([])
     const sessionUser = useSelector((state) => state.session.user)
 
-    const cafe = useSelector(state => Object.values(state.cafe))
+    const currentCafe = useSelector(state => Object.values(state.cafe))
     //console.log(cafe)
     const history = useHistory();
     const dispatch = useDispatch();
@@ -30,7 +30,8 @@ const CreateComment = () => {
 
         const createOne = await dispatch(addComment(payload));
         if (createOne) {
-            history.push(`/cafes/:id/new`);
+            history.push(`/cafes/${cafe.id}`);
+            setAnswer("")
         }
     };
 
@@ -40,7 +41,7 @@ const CreateComment = () => {
 
             <div className='add-comment'>
                 <h3>Add A Comment</h3>
-                <form onSubmit={handleSubmit} className='add-comment'>
+                <form onSubmit={handleSubmit} className='add-a-comment'>
                     Comment
                     <input
                         onChange={(e) => setAnswer(e.target.value)}

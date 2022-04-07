@@ -48,12 +48,12 @@ function App() {
           <Route path="/cafes/:id/edit">
             <UpdateCafe />
           </Route>
-          {/* <Route exact path="/cafes/:id/comments">
-            <CommentPage />
-          </Route> */}
-          {/* <Route path="/cafes/:id/comments/new">
+           <Route exact path="/cafes/:id/comments">
             <CreateComment />
-          </Route> */}
+          </Route>
+           <Route path="/cafes/:id/comments/new">
+            <CreateComment />
+          </Route>
         </Switch>
       )}
     </>
