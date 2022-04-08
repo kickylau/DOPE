@@ -15,10 +15,10 @@ const CreateComment = ({currentCafe}) => {
     //console.log(cafe)
     const history = useHistory();
     const dispatch = useDispatch();
-    const handleCancelClick = (e) => {
-        e.preventDefault()
-        history.push("/cafes")
-    };
+    // const handleCancelClick = (e) => {
+    //     e.preventDefault()
+    //     history.push(`/cafes/${id}`)
+    // };
 
 
     const handleSubmit = async (e) => {
@@ -41,11 +41,10 @@ const CreateComment = ({currentCafe}) => {
 
     if (sessionUser) {
         return (
-
             <div className='add-comment'>
-                {/* <h3>Add A Comment</h3> */}
                 <form onSubmit={handleSubmit} className='add-a-comment'>
                     <input
+                    className="input"
                         onChange={(e) => setAnswer(e.target.value)}
                         value={answer}
                         placeholder='Add a review here'
@@ -54,9 +53,9 @@ const CreateComment = ({currentCafe}) => {
                     <button className='submit-button' type='submit'>
                         Add Review
                     </button>
-                    <button type="button" className='cancel-button' onClick={handleCancelClick}>
+                    {/* <button type="button" className='cancel-button' onClick={handleCancelClick}>
                         Cancel
-                    </button>
+                    </button> */}
                 </form>
             </div>
         )

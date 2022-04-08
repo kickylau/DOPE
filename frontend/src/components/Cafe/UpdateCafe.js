@@ -11,7 +11,7 @@ function UpdateCafe({currentcafe}) {
     const {id} = useParams()
     const currentCafe = useSelector(state => Object.values(state.cafe))
     //?const currentCafe = useSelector(state => Object.values(state.cafe.id))
-    
+
     //console.log(currentCafe)
     //grab the cafe object to pass into the component??
     const dispatch = useDispatch();
@@ -37,7 +37,7 @@ function UpdateCafe({currentcafe}) {
         setErrors([]);
 
         const payload = {
-            //...currentCafe,
+            ...currentCafe,
             id, //missing the cafe id
             ownerId:sessionUser.id,
             title,
@@ -56,20 +56,14 @@ function UpdateCafe({currentcafe}) {
         if (createOne){
             history.push('/cafes');
         }
-
-
       };
 
 
     const handleCancelClick = (e) => {
         e.preventDefault()
-        history.push("/cafes")
+        history.push("/cafes/")
     };
 
-
-
-        // <div className='edit-cafe'>
-        // <h3>Edit A Cafe</h3>
        if (sessionUser) {
            return (
 

@@ -61,7 +61,7 @@ const CreateCafe = () => {
     return (
 
       <div className='add-cafe'>
-      <h3>Add A Cafe</h3>
+      {/* <h3>Add A Cafe</h3> */}
       <form onSubmit={handleSubmit} className='add-cafe'>
         Image Url
         <input

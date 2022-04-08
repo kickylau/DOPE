@@ -57,7 +57,6 @@ const CafeDetail = () => {
       }
       //console.log(currentCafe,"DEFINE DELETE CURRENTCAFE")
     } else {
-      //<h2>COMMENTS</h2>
       //history.push('/login');
       return (<h2>ONLY CAFE OWNER CAN UPDATE OR DELETE </h2>)
     }
@@ -70,37 +69,42 @@ const CafeDetail = () => {
 
   return (
 
-    <div className='cafe-detail'>
-      <img src={img} className='cafe-img' id="img" />
-      <h3 className='cafe-title'>{title}</h3>
-      <h4 className='cafe-description'>{description}</h4>
-      <h5 className='cafe-address' >Address: {address}</h5>
-      <h5 className='cafe-city'>City: {city}</h5>
-      <h5 className='cafe-zipCode'>Zipcode: {zipCode}</h5>
-      <div className='button-row'>
-
-        <button onClick={() => handleDelete(id)} className='delete-button'>
-          {/* has to be key in right  */}
-          Delete
-        </button>
-        <button onClick={openEdit} className='update-button'>Update</button>
+    <div>
+      <div className='cafe-detail'>
+        <img src={img} className='cafe-img' id="img" />
+        <h3 className='cafe-title'>{title}</h3>
+        <h4 className='cafe-description'>{description}</h4>
+        <h5 className='cafe-address' >Address: {address}</h5>
+        <h5 className='cafe-city'>City: {city}</h5>
+        <h5 className='cafe-zipCode'>Zipcode: {zipCode}</h5>
+        <div>
+          <button onClick={() => handleDelete(id)} className='delete-button'>
+            {/* has to be key in right  */}
+            Delete
+          </button>
+          <button onClick={openEdit} className='update-button'>
+            Update
+          </button>
+        </div>
       </div>
 
-      <div>
-        <h2>Reviews</h2>
+      <div className="review-detail">
+        <div className = "container">
+        <h4>Reviews</h4>
 
         <CreateComment currentCafe={currentCafe} />
         {Object.values(comments)?.map((comment) => (
           <div>
-            <span>
-            {comment.answer}
-          </span>
-          {(+sessionUser.id === +comment.userId) && (
-            <button className="delete-comment">Delete</button>
-          )
-          }
+            <span className="reviews">
+              {comment.answer}
+            </span>
+            {(+sessionUser.id === +comment.userId) && (
+              <button className="delete-comment">Delete</button>
+            )
+            }
           </div>
         ))}
+        </div>
       </div>
     </div>
 

@@ -12,7 +12,7 @@ function LandingPage() {
     return (
         <div className="landingpage">
             <h1>Welcome to DOPE!  </h1>
-            <h2>Your Ultimate NYC Puppy Cafe Destination</h2>
+            <h2>Your Ultimate NYC Puppy Cafe Local Guide</h2>
             <h3>(Say HI to Georgie!)</h3>
             {/* <img src="georgie.gif" alt="georgie" className="georgie" />
             <a><img src="https://i.ibb.co/xjbPMsS/IMG-5337.jpg" alt="goergie" className="georgie" /></a> */}
