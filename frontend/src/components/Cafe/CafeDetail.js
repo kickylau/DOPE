@@ -51,25 +51,25 @@ const CafeDetail = () => {
 
   //have to be consistent with what you key in
   const handleDelete = (id) => {
-    if (+sessionUser.id === +currentCafe.ownerId) {
+    //if (+sessionUser.id === +currentCafe.ownerId) {
 
           dispatch(deleteCafe(+id));
           history.push("/cafes")
 
-      } else {
-        return (<h2>ONLY CAFE OWNER CAN UPDATE OR DELETE </h2>)
+      //} else {
+        //return (<h2>ONLY CAFE OWNER CAN UPDATE OR DELETE </h2>)
       }
       //console.log(currentCafe,"DEFINE DELETE CURRENTCAFE")
 
       //history.push('/login');
-  };
+  //};
 
   const openEdit = (id) => {
-    if (+sessionUser.id === +currentCafe.ownerId) {
+    //if (+sessionUser.id === +currentCafe.ownerId) {
       history.push(`/cafes/${id}/edit`)
-    } else {
-      return (<h2>ONLY CAFE OWNER CAN UPDATE OR DELETE </h2>)
-    }
+    //} else {
+      //return (<h2>ONLY CAFE OWNER CAN UPDATE OR DELETE </h2>)
+    //}
   }
 
   const handleDeleteComment = (e) => {
@@ -92,13 +92,12 @@ const CafeDetail = () => {
         <h5 className='cafe-city'>City: {city}</h5>
         <h5 className='cafe-zipCode'>Zipcode: {zipCode}</h5>
         <div>
-          <button onClick={() => handleDelete(+id)} className='delete-button'>
-            {/* has to be key in right  */}
+          {(+sessionUser.id === +currentCafe.ownerId) && ( <button onClick={() => handleDelete(+id)} className='delete-button'>
             Delete
-          </button>
-          <button onClick={openEdit} className='update-button'>
+          </button>)}
+          {(+sessionUser.id === +currentCafe.ownerId) && (  <button onClick={openEdit} className='update-button'>
             Update
-          </button>
+          </button> )}
         </div>
       </div>
 

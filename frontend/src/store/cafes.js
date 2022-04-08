@@ -6,13 +6,6 @@ const REMOVE_ONE_CAFE = 'cafes/removeOneCafe';
 const UPDATE_CAFE = "cafes/updateOneCafe";
 const GET_ONE_CAFE = "cafes/getOne"
 
-const updateOneCafe = (payload) => {
-    return {
-        type: UPDATE_CAFE,
-        payload
-    }
-}
-
 const addCafes = (payload) => {
     return {
         type: ADD_CAFES,
@@ -44,6 +37,32 @@ const getOne = (payload) => {
 
 
 
+const updateOneCafe = (payload) => {
+    return {
+        type: UPDATE_CAFE,
+        payload
+    }
+}
+
+
+export const updateCafe = (payload) => async (dispatch) => {
+    console.log(payload, "PAYLOAD")
+    const response = await csrfFetch(`/api/cafes/${payload.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    })
+    if (response.ok) {
+        const data = await response.json()
+        const updatedCafe = data.cafe
+        dispatch(updateOneCafe(updatedCafe))
+        return updatedCafe;
+    }
+}
+//return the updatedCafe,
+//your createOne variable in your handleSubmit will always be undefined
+//unless you return something in your updateCafe thunk
+
 export const getAllCafes = () => async (dispatch) => {
     const response = await csrfFetch('/api/cafes');
     if (response.ok) {
@@ -73,24 +92,6 @@ export const addCafe = (cafe) => async (dispatch) => {
     }
 };
 
-
-export const updateCafe = (payload) => async (dispatch) => {
-    //console.log(payload, "PAYLOAD")
-    const response = await csrfFetch(`/api/cafes/${payload.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    })
-    if (response.ok) {
-        const data = await response.json()
-        const updatedCafe = data.cafe
-        dispatch(updateOneCafe(updatedCafe))
-        return updatedCafe;
-    }
-}
-//return the updatedCafe,
-//your createOne variable in your handleSubmit will always be undefined
-//unless you return something in your updateCafe thunk
 
 export const deleteCafe = (id) => async (dispatch) => {
     //const cafe = useSelector((state) => Object.values(state.cafe[id]));
