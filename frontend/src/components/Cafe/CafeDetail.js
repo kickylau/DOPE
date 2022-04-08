@@ -16,7 +16,7 @@ const CafeDetail = () => {
   //console.log({cafe})
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user)
-  const currentCafe = useSelector((state) => state.cafe[+id])
+  const currentCafe = useSelector((state) => state.cafe[id])
 
   //console.log(currentCafe, "CURRENT CAFE")
 
@@ -31,9 +31,9 @@ const CafeDetail = () => {
     dispatch(getAllComments(+id))
   }, [dispatch, id])
 
-  if (!currentCafe) {
-    return null;
-  }
+  // if (!currentCafe) {
+  //   return null;
+  // }
 
   const { img, title, description, address, city, zipCode } = currentCafe
   //same as currentCafe.img .title etc ...
