@@ -17,6 +17,9 @@ const CafeDetail = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user)
   const currentCafe = useSelector((state) => state.cafe[id])
+  //OR  const cafes = useSelector(state => Object.values(state.cafe))
+    //get a specific cafe based on ID
+    //const currentCafe = cafes.find(cafeObj => cafeObj.id === +id)
   //const currentComment = useSelector((state)=> state.comment)
 
   //console.log(currentCafe, "CURRENT CAFE")
@@ -37,7 +40,7 @@ const CafeDetail = () => {
   //   return null;
   // }
 
-  const { img, title, description, address, city, zipCode } = currentCafe
+  //const { img, title, description, address, city, zipCode } = currentCafe
   //same as currentCafe.img .title etc ...
 
 
@@ -85,17 +88,17 @@ const CafeDetail = () => {
 
     <div>
       <div className='cafe-detail'>
-        <img src={img} className='cafe-img' id="img" />
-        <h3 className='cafe-title'>{title}</h3>
-        <h4 className='cafe-description'>{description}</h4>
-        <h5 className='cafe-address' >Address: {address}</h5>
-        <h5 className='cafe-city'>City: {city}</h5>
-        <h5 className='cafe-zipCode'>Zipcode: {zipCode}</h5>
+        <img src={currentCafe?.img} className='cafe-img' id="img" />
+        <h3 className='cafe-title'>{currentCafe?.title}</h3>
+        <h4 className='cafe-description'>{currentCafe?.description}</h4>
+        <h5 className='cafe-address' >Address: {currentCafe?.address}</h5>
+        <h5 className='cafe-city'>City: {currentCafe?.city}</h5>
+        <h5 className='cafe-zipCode'>Zipcode: {currentCafe?.zipCode}</h5>
         <div>
-          {(+sessionUser.id === +currentCafe.ownerId) && ( <button onClick={() => handleDelete(+id)} className='delete-button'>
+          {(+sessionUser?.id === +currentCafe?.ownerId) && ( <button onClick={() => handleDelete(+id)} className='delete-button'>
             Delete
           </button>)}
-          {(+sessionUser.id === +currentCafe.ownerId) && (  <button onClick={openEdit} className='update-button'>
+          {(+sessionUser?.id === +currentCafe?.ownerId) && (  <button onClick={() =>openEdit(+id)} className='update-button'>
             Update
           </button> )}
         </div>
@@ -111,7 +114,7 @@ const CafeDetail = () => {
             <span className="reviews">
               {comment.answer}
             </span>
-            {(+sessionUser.id === +comment.userId) && (
+            {(+sessionUser?.id === +comment?.userId) && (
               <button id={`delete-review-${comment.id}`} className="delete-comment" onClick={handleDeleteComment}>Delete</button>
             )
             }

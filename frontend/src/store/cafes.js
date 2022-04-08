@@ -46,7 +46,7 @@ const updateOneCafe = (payload) => {
 
 
 export const updateCafe = (payload) => async (dispatch) => {
-    console.log(payload, "PAYLOAD")
+    //console.log(payload, "PAYLOAD")
     const response = await csrfFetch(`/api/cafes/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },

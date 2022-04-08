@@ -57,6 +57,36 @@ const CreateCafe = () => {
     setZipCode("")
   };
 
+  // const validateCafe = [
+  //   check('img')
+  //     .notEmpty()
+  //     .isURL({ require_protocol: false, require_host: false }),
+  //   check('title')
+  //     .not().isEmpty()
+  //     .isLength({ min: 4 })
+  //     .withMessage('Please provide a title with at least 4 characters.'),
+  //   check('description')
+  //     .not().isEmpty()
+  //     .isLength({ min: 5 })
+  //     .withMessage('Please provide a description with at least 5 characters.'),
+  //   check('address')
+  //     .not().isEmpty()
+  //     .isLength({ min: 5 })
+  //     .withMessage('Please provide an address with at least 5 characters.'),
+  //   check('city').not()
+  //     .not().isEmpty()
+  //     .isLength({ min: 4 })
+  //     .withMessage('Please provide a city name with at least 4 characters.'),
+  //   check('zipCode')
+  //     .not().isEmpty()
+  //     .isNumeric({ min: 5 })
+  //     .withMessage('Please provide a valid zipcode.'),
+  //   handleValidationErrors
+  // ];
+
+
+
+
   if (sessionUser) {
     return (
 

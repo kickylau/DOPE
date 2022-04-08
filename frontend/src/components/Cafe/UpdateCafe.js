@@ -5,11 +5,13 @@ import { updateCafe } from "../../store/cafes";
 
 
 
-function UpdateCafe({currentcafe}) {
-
+function UpdateCafe() {
+    //{currentcafe} no need to prop in because you have the store data
     //console.log(cafe)
     const {id} = useParams()
-    const currentCafe = useSelector(state => Object.values(state.cafe))
+    const cafes = useSelector(state => Object.values(state.cafe))
+    //get a specific cafe based on ID
+    const currentCafe = cafes.find(cafeObj => cafeObj.id === +id)
     //?const currentCafe = useSelector(state => Object.values(state.cafe.id))
 
     //console.log(currentCafe)
@@ -17,9 +19,9 @@ function UpdateCafe({currentcafe}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const [title, setTitle] = useState(currentCafe?.title);  //conditional chaining
-    const [description, setDescription] = useState(currentcafe?.description);
-    const [address, setAddress] = useState(currentcafe?.address);
-    const [city, setCity] = useState(currentcafe?.city);
+    const [description, setDescription] = useState(currentCafe?.description);
+    const [address, setAddress] = useState(currentCafe?.address);
+    const [city, setCity] = useState(currentCafe?.city);
     const [zipCode, setZipCode] = useState(currentCafe?.zipCode);
     const [img, setImg] = useState(currentCafe?.img);
     const [errors, setErrors] = useState([]);

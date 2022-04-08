@@ -33,7 +33,7 @@ const CreateComment = ({currentCafe}) => {
 
         const createOne = await dispatch(addComment(payload));
         if (createOne) {
-            history.push(`/cafes/${currentCafe.id}`);
+            history.push(`/cafes/${currentCafe?.id}`);
             setAnswer("")
         }
     };
