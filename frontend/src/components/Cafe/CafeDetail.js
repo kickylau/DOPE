@@ -17,6 +17,7 @@ const CafeDetail = () => {
   const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user)
   const currentCafe = useSelector((state) => state.cafe[id])
+  //const currentComment = useSelector((state)=> state.comment)
 
   //console.log(currentCafe, "CURRENT CAFE")
 
@@ -27,6 +28,7 @@ const CafeDetail = () => {
   //its undefined
   useEffect(() => {
     dispatch(getAllCafes())
+    dispatch(getOneCafe(+id))
     //then look at the function
     dispatch(getAllComments(+id))
   }, [dispatch, id])
@@ -39,7 +41,6 @@ const CafeDetail = () => {
   //same as currentCafe.img .title etc ...
 
 
-
   //console.log(currentCafe,"CURRENT CAFE HERE ")
 
   // if(!answers){
@@ -50,22 +51,35 @@ const CafeDetail = () => {
 
   //have to be consistent with what you key in
   const handleDelete = (id) => {
-    if (sessionUser) {
-      if (sessionUser.id === currentCafe.ownerId) {
-        dispatch(deleteCafe(id));
-        history.push("/cafes")
+    if (+sessionUser.id === +currentCafe.ownerId) {
+
+          dispatch(deleteCafe(+id));
+          history.push("/cafes")
+
+      } else {
+        return (<h2>ONLY CAFE OWNER CAN UPDATE OR DELETE </h2>)
       }
       //console.log(currentCafe,"DEFINE DELETE CURRENTCAFE")
-    } else {
+
       //history.push('/login');
-      return (<h2>ONLY CAFE OWNER CAN UPDATE OR DELETE </h2>)
-    }
   };
 
-  const openEdit = () => {
-    history.push(`/cafes/${id}/edit`)
-    //    setToggleEdit(!toggleEdit)
+  const openEdit = (id) => {
+    if (+sessionUser.id === +currentCafe.ownerId) {
+      history.push(`/cafes/${id}/edit`)
+    } else {
+      return (<h2>ONLY CAFE OWNER CAN UPDATE OR DELETE </h2>)
+    }
   }
+
+  const handleDeleteComment = (e) => {
+    const id = parseInt(e.target.id.split("delete-review-")[1],10)
+    //in order to get the review id
+    dispatch(deleteComment(id))
+
+  }
+  //id rightnow here is actually the event , since this is eventhandler
+
 
   return (
 
@@ -78,7 +92,7 @@ const CafeDetail = () => {
         <h5 className='cafe-city'>City: {city}</h5>
         <h5 className='cafe-zipCode'>Zipcode: {zipCode}</h5>
         <div>
-          <button onClick={() => handleDelete(id)} className='delete-button'>
+          <button onClick={() => handleDelete(+id)} className='delete-button'>
             {/* has to be key in right  */}
             Delete
           </button>
@@ -99,7 +113,7 @@ const CafeDetail = () => {
               {comment.answer}
             </span>
             {(+sessionUser.id === +comment.userId) && (
-              <button className="delete-comment">Delete</button>
+              <button id={`delete-review-${comment.id}`} className="delete-comment" onClick={handleDeleteComment}>Delete</button>
             )
             }
           </div>

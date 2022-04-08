@@ -83,6 +83,24 @@ router.get(
   })
 );
 
+
+//good to go
+router.delete(
+  '/:id(\\d+)',
+  asyncHandler(async (req, res, next) => {
+    const answer = await Review.findByPk(req.params.id);
+    //console.log(answer.id,"ANSWER")
+    if (answer) {
+      await answer.destroy();
+      res.status(204).json({ message: "succeed" });
+    } else {
+      next(reviewNotFoundError(req.params.id));
+    }
+  }));
+
+
+
+
 //goodtogo
 router.post(
   '/new',
@@ -90,13 +108,17 @@ router.post(
   //validateReview,
   asyncHandler(async (req, res) => {
     const { userId, businessId, answer} = req.body;
-    console.log(userId, businessId,answer)
+    //console.log(userId, businessId,answer)
 
     //console.log(req.body)
     const response = await Review.create({ userId, businessId, answer});
     return res.json(response);
   })
 );
+
+
+
+
 
 
 
@@ -115,15 +137,6 @@ router.get(
 
 
 
-router.delete(
-  '/:id(\\d+)', asyncHandler(async (req, res, next) => {
-    const answer = await Review.findByPk(req.params.id);
-    if (answer) {
-      await answer.destroy();
-      res.status(204).json({ message: "succeed" });
-    } else {
-      next(reviewNotFoundError(req.params.id));
-    }
-  }));
+
 
 module.exports = router;
