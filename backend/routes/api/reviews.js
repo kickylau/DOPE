@@ -22,8 +22,8 @@ const reviewNotFoundError = (id) => {
 const validateReview = [
   check('answer')
     .not().isEmpty()
-    .isLength({ min: 5 })
-    .withMessage('Please provide the review with at least 5 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide the review with at least 1 character.'),
   handleValidationErrors
 ];
 
@@ -34,23 +34,23 @@ const validateCafe = [
     .isURL({ require_protocol: false, require_host: false }),
   check('title')
     .not().isEmpty()
-    .isLength({ min: 4 })
-    .withMessage('Please provide a title with at least 4 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide a title with at least 1 character.'),
   check('description')
     .not().isEmpty()
-    .isLength({ min: 5 })
-    .withMessage('Please provide a description with at least 5 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide a description with at least 1 character.'),
   check('address')
     .not().isEmpty()
-    .isLength({ min: 5 })
-    .withMessage('Please provide an address with at least 5 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide an address with at least 1 character.'),
   check('city').not()
     .not().isEmpty()
-    .isLength({ min: 4 })
-    .withMessage('Please provide a city name with at least 4 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide a city name with at least 1 character.'),
   check('zipCode')
     .not().isEmpty()
-    .isNumeric({ min: 5 })
+    .isNumeric({ min: 1 })
     .withMessage('Please provide a valid zipcode.'),
   handleValidationErrors
 ];
@@ -105,8 +105,7 @@ router.delete(
 //goodtogo
 router.post(
   '/new',
-  //validateCafe,
-  //validateReview,
+  validateReview,
   asyncHandler(async (req, res) => {
     const { userId, businessId, answer} = req.body;
     //console.log(userId, businessId,answer)

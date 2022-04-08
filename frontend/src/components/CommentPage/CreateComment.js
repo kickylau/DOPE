@@ -47,7 +47,7 @@ const CreateComment = ({currentCafe}) => {
                     className="input"
                         onChange={(e) => setAnswer(e.target.value)}
                         value={answer}
-                        placeholder='Add a review here'
+                        placeholder='At least 1 character'
                         required
                     />
                     <button className='submit-button' type='submit'>

@@ -1,13 +1,13 @@
-const { check } = require('express-validator');
-const { handleValidationErrors } = require('../../utils/validation');
-
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { User, Cafe, Review } = require('../../db/models');
 
 const router = express.Router();
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
+
+
 
 
 const cafeNotFoundError = (id) => {
@@ -26,23 +26,23 @@ const validateCafe = [
     .isURL({ require_protocol: false, require_host: false }),
   check('title')
     .not().isEmpty()
-    .isLength({ min: 4 })
-    .withMessage('Please provide a title with at least 4 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide a title with at least 1 character.'),
   check('description')
     .not().isEmpty()
-    .isLength({ min: 5 })
-    .withMessage('Please provide a description with at least 5 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide a description with at least 1 character.'),
   check('address')
     .not().isEmpty()
-    .isLength({ min: 5 })
-    .withMessage('Please provide an address with at least 5 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide an address with at least 1 character.'),
   check('city').not()
     .not().isEmpty()
-    .isLength({ min: 4 })
-    .withMessage('Please provide a city name with at least 4 characters.'),
+    .isLength({ min: 1 })
+    .withMessage('Please provide a city name with at least 1 character.'),
   check('zipCode')
     .not().isEmpty()
-    .isNumeric({ min: 5 })
+    .isNumeric({ min: 1 })
     .withMessage('Please provide a valid zipcode.'),
   handleValidationErrors
 ];
@@ -64,7 +64,7 @@ router.get(
 
 router.post(
   '/new',
-  //validateCafe,
+  validateCafe,
   asyncHandler(async (req, res) => {
     //const { img,title,ownerId,description,address,city,zipCode} = req.body;
     const cafe = await Cafe.create(req.body);
@@ -89,7 +89,7 @@ router.get(
 
 router.put(
   '/:id(\\d+)',
-  //validateCafe,
+  validateCafe,
   asyncHandler(async (req, res, next) => {
     const cafe = await Cafe.findByPk(req.params.id);
 

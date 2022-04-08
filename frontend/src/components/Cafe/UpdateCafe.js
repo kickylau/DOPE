@@ -82,7 +82,7 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setImg(e.target.value)}
                     value={img}
-                    placeholder='Image Url'
+                    placeholder='Valid Image Url'
                     required
                 />
             </label>
@@ -92,7 +92,7 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
-                    placeholder='Cafe Title'
+                    placeholder='Valid Cafe Title'
                     required
                 />
             </label>
@@ -102,7 +102,7 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
-                    placeholder='Description'
+                    placeholder='Valid Description'
                     required
                 /></label>
             <label>
@@ -111,7 +111,7 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setAddress(e.target.value)}
                     value={address}
-                    placeholder='Address'
+                    placeholder='Valid Address'
                     required
                 />
             </label>
@@ -121,7 +121,7 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setCity(e.target.value)}
                     value={city}
-                    placeholder='City'
+                    placeholder='Valid City'
                     required
                 />
             </label>
@@ -131,7 +131,7 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setZipCode(e.target.value)}
                     value={zipCode}
-                    placeholder='ZipCode'
+                    placeholder='Valid ZipCode'
                     required
                 /></label>
 

@@ -97,40 +97,40 @@ const CreateCafe = () => {
         <input
           onChange={(e) => setImg(e.target.value)}
           value={img}
-          placeholder='Image Url'
+          placeholder='A valid Image Url'
           required
         />
         Cafe Title
         <input
           onChange={(e) => setTitle(e.target.value)}
           value={title}
-          placeholder='Cafe Title'
+          placeholder='At least 1 character'
           required
         />
         Description
         <input
           onChange={(e) => setDescription(e.target.value)}
           value={description}
-          placeholder='Description'
+          placeholder='At least 1 character'
           required
         />
         Address
         <input
           onChange={(e) => setAddress(e.target.value)}
           value={address}
-          placeholder='Address'
+          placeholder='At least 1 character'
           required
         />
         City<input
           onChange={(e) => setCity(e.target.value)}
           value={city}
-          placeholder='City'
+          placeholder='At least 1 character'
           required
         />
         Zipcode<input
           onChange={(e) => setZipCode(e.target.value)}
           value={zipCode}
-          placeholder='ZipCode'
+          placeholder='A valid ZipCode'
           required
         />
         <button className='submit-button' type='submit'>
