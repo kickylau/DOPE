@@ -96,7 +96,7 @@ function UpdateCafe() {
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
                     placeholder="At least 1 character"
-                    required minlength="1"
+                    required 
                 />
             </label>
              <label>
@@ -106,7 +106,7 @@ function UpdateCafe() {
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
                     placeholder='At least 1 character'
-                    required minlength="1"
+                    required
                 /></label>
             <label>
                 Address
@@ -115,7 +115,7 @@ function UpdateCafe() {
                     onChange={(e) => setAddress(e.target.value)}
                     value={address}
                     placeholder="At least 1 character"
-                    required minlength="1"
+                    required
                 />
             </label>
             <label>
@@ -125,7 +125,7 @@ function UpdateCafe() {
                     onChange={(e) => setCity(e.target.value)}
                     value={city}
                     placeholder='At least 1 character'
-                    required minlength="1"
+                    required
                 />
             </label>
             <label>

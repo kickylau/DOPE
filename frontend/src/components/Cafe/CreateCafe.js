@@ -106,7 +106,7 @@ const CreateCafe = () => {
             onChange={(e) => setTitle(e.target.value)}
             value={title}
             placeholder='At least 1 character'
-            required minlength="1"
+            required
           />
           Description
           <input
@@ -114,7 +114,7 @@ const CreateCafe = () => {
             onChange={(e) => setDescription(e.target.value)}
             value={description}
             placeholder='At least 1 character'
-            required minlength="1"
+            required
           />
           Address
           <input
@@ -122,14 +122,14 @@ const CreateCafe = () => {
             onChange={(e) => setAddress(e.target.value)}
             value={address}
             placeholder='At least 1 character'
-            required minlength="1"
+            required
           />
           City<input
             type="text"
             onChange={(e) => setCity(e.target.value)}
             value={city}
             placeholder='At least 1 character'
-            required minlength="1"
+            required 
           />
           Zipcode<input
             pattern="[0-9]{5}"
