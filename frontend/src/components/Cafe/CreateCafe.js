@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addCafe } from '../../store/cafes';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link, NavLink } from 'react-router-dom';
+
 
 const CreateCafe = () => {
   //console.log("ENTER CREATE CAFE")
@@ -129,7 +130,7 @@ const CreateCafe = () => {
             onChange={(e) => setCity(e.target.value)}
             value={city}
             placeholder='At least 1 character'
-            required 
+            required
           />
           Zipcode<input
             pattern="[0-9]{5}"
@@ -149,7 +150,8 @@ const CreateCafe = () => {
       </div>
     )
   } else {
-    return (<h2>PLEASE LOG IN FIRST TO CREATE </h2>)
+    return (<span className="login-first">
+       <p>&#128151; PLEASE LOG IN FIRST TO CREATE A CAFE &#128151;</p></span>)
   }
 };
 export default CreateCafe;

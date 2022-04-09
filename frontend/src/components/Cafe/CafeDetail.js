@@ -106,12 +106,13 @@ const CafeDetail = () => {
 
       <div className="review-detail">
         <div className = "container">
-        <h4>Reviews</h4>
+        <h4>Cafe Reviews</h4>
 
         <CreateComment currentCafe={currentCafe} />
         {Object.values(comments)?.map((comment) => (
           <div>
             <span className="reviews">
+            <i className="fas fa-comment"></i>
               {comment.answer}
             </span>
             {(+sessionUser?.id === +comment?.userId) && (

@@ -1,6 +1,6 @@
 
 
-
+/*
 .add-comment{
     text-align: end;
 }
@@ -8,4 +8,11 @@
 
 .add-a-comment{
     text-align: end;
+} */
+
+
+h5 {
+    color:lightpink;
+    font-family: verdana;
+    text-align: center;
 }

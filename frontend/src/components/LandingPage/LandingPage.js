@@ -11,9 +11,9 @@ function LandingPage() {
 
     return (
         <div className="landingpage">
-            <h1>Welcome to DOPE!  </h1>
+            <h1> <i className="fa-solid fa-paw"></i> DOPE <i className="fa-solid fa-paw"></i>  </h1>
             <h2>Your Ultimate NYC Puppy Cafe Local Guide</h2>
-            <h3>(Say HI to Georgie!)</h3>
+            <h5>(Say HI to Georgie!)</h5>
             {/* <img src="georgie.gif" alt="georgie" className="georgie" />
             <a><img src="https://i.ibb.co/xjbPMsS/IMG-5337.jpg" alt="goergie" className="georgie" /></a> */}
             <a>

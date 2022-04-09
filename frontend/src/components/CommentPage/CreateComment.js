@@ -61,7 +61,7 @@ const CreateComment = ({ currentCafe }) => {
             </div>
         )
     } else {
-        return (<h2>PLEASE LOG IN FIRST TO COMMENT </h2>)
+        return (<h6><p>&#128151; PLEASE LOG IN FIRST TO COMMENT &#128151; </p></h6>)
     }
 };
 export default CreateComment;
