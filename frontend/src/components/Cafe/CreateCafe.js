@@ -13,7 +13,7 @@ const CreateCafe = () => {
   const [city, setCity] = useState('');
   const [zipCode, setZipCode] = useState('');
   const [errors, setErrors] = useState([])
-  const sessionUser = useSelector((state)=>state.session.user)
+  const sessionUser = useSelector((state) => state.session.user)
 
   const cafe = useSelector(state => Object.values(state.cafe))
   //console.log(cafe)
@@ -29,7 +29,7 @@ const CreateCafe = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-      ownerId:sessionUser.id,
+      ownerId: sessionUser.id,
       img,
       title,
       description,
@@ -40,8 +40,8 @@ const CreateCafe = () => {
 
     const createOne = await dispatch(addCafe(payload));
     //console.log(payload)
-    if (createOne){
-        history.push(`/cafes/`);
+    if (createOne) {
+      history.push(`/cafes/`);
     }
 
     //reset();
@@ -86,64 +86,70 @@ const CreateCafe = () => {
 
 
 
-
   if (sessionUser) {
     return (
 
       <div className='add-cafe'>
-      {/* <h3>Add A Cafe</h3> */}
-      <form onSubmit={handleSubmit} className='add-cafe'>
-        Image Url
-        <input
-          onChange={(e) => setImg(e.target.value)}
-          value={img}
-          placeholder='A valid Image Url'
-          required
-        />
-        Cafe Title
-        <input
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          placeholder='At least 1 character'
-          required
-        />
-        Description
-        <input
-          onChange={(e) => setDescription(e.target.value)}
-          value={description}
-          placeholder='At least 1 character'
-          required
-        />
-        Address
-        <input
-          onChange={(e) => setAddress(e.target.value)}
-          value={address}
-          placeholder='At least 1 character'
-          required
-        />
-        City<input
-          onChange={(e) => setCity(e.target.value)}
-          value={city}
-          placeholder='At least 1 character'
-          required
-        />
-        Zipcode<input
-          onChange={(e) => setZipCode(e.target.value)}
-          value={zipCode}
-          placeholder='A valid ZipCode'
-          required
-        />
-        <button className='submit-button' type='submit'>
-          Add Cafe
-        </button>
-        <button type="button" className = 'cancel-button' onClick={handleCancelClick}>
-          Cancel
-        </button>
-      </form>
-    </div>
+        {/* <h3>Add A Cafe</h3> */}
+        <form onSubmit={handleSubmit} className='add-cafe'>
+          Image Url
+          <input
+            type="url"
+            onChange={(e) => setImg(e.target.value)}
+            value={img}
+            placeholder='A valid Image Url'
+          //required
+          />
+          Cafe Title
+          <input
+            type="text"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            placeholder='At least 1 character'
+            required minlength="1"
+          />
+          Description
+          <input
+            type="text"
+            onChange={(e) => setDescription(e.target.value)}
+            value={description}
+            placeholder='At least 1 character'
+            required minlength="1"
+          />
+          Address
+          <input
+            type="text"
+            onChange={(e) => setAddress(e.target.value)}
+            value={address}
+            placeholder='At least 1 character'
+            required minlength="1"
+          />
+          City<input
+            type="text"
+            onChange={(e) => setCity(e.target.value)}
+            value={city}
+            placeholder='At least 1 character'
+            required minlength="1"
+          />
+          Zipcode<input
+            pattern="[0-9]{5}"
+            type="text"
+            onChange={(e) => setZipCode(e.target.value)}
+            value={zipCode}
+            placeholder='A valid ZipCode'
+          //required
+          />
+          <button className='submit-button' type='submit'>
+            Add Cafe
+          </button>
+          <button type="button" className='cancel-button' onClick={handleCancelClick}>
+            Cancel
+          </button>
+        </form>
+      </div>
     )
-        } else {
-          return (<h2>PLEASE LOG IN FIRST TO CREATE </h2>)
-      }
+  } else {
+    return (<h2>PLEASE LOG IN FIRST TO CREATE </h2>)
+  }
 };
 export default CreateCafe;

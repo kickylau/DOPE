@@ -66,6 +66,9 @@ function UpdateCafe() {
         history.push("/cafes/")
     };
 
+
+
+
        if (sessionUser) {
            return (
 
@@ -79,21 +82,21 @@ function UpdateCafe() {
             <label>
                 Image
                 <input
-                    type="text"
+                    type="url"
                     onChange={(e) => setImg(e.target.value)}
                     value={img}
                     placeholder='Valid Image Url'
-                    required
+                    //required
                 />
             </label>
             <label>
-                Title
+                Cafe Title
                 <input
                     type="text"
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
-                    placeholder='Valid Cafe Title'
-                    required
+                    placeholder="At least 1 character"
+                    required minlength="1"
                 />
             </label>
              <label>
@@ -102,8 +105,8 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
-                    placeholder='Valid Description'
-                    required
+                    placeholder='At least 1 character'
+                    required minlength="1"
                 /></label>
             <label>
                 Address
@@ -111,8 +114,8 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setAddress(e.target.value)}
                     value={address}
-                    placeholder='Valid Address'
-                    required
+                    placeholder="At least 1 character"
+                    required minlength="1"
                 />
             </label>
             <label>
@@ -121,18 +124,19 @@ function UpdateCafe() {
                     type="text"
                     onChange={(e) => setCity(e.target.value)}
                     value={city}
-                    placeholder='Valid City'
-                    required
+                    placeholder='At least 1 character'
+                    required minlength="1"
                 />
             </label>
             <label>
                 Zipcode
                 <input
+                   pattern="[0-9]{5}"
                     type="text"
                     onChange={(e) => setZipCode(e.target.value)}
                     value={zipCode}
-                    placeholder='Valid ZipCode'
-                    required
+                    placeholder='Five Digit Zipcode'
+                    //required
                 /></label>
 
             <button className='submit-button' type='submit'>

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 //import under cafedetail
 
-const CreateComment = ({currentCafe}) => {
+const CreateComment = ({ currentCafe }) => {
     const [answer, setAnswer] = useState('');
     const [errors, setErrors] = useState([])
     const sessionUser = useSelector((state) => state.session.user)
@@ -26,7 +26,7 @@ const CreateComment = ({currentCafe}) => {
         const payload = {
             userId: sessionUser.id,
             answer,
-            businessId:currentCafe.id
+            businessId: currentCafe.id
             //cafe is undefined the cafe property is empty
         };
 
@@ -44,7 +44,8 @@ const CreateComment = ({currentCafe}) => {
             <div className='add-comment'>
                 <form onSubmit={handleSubmit} className='add-a-comment'>
                     <input
-                    className="input"
+                        type="text"
+                        className="input"
                         onChange={(e) => setAnswer(e.target.value)}
                         value={answer}
                         placeholder='At least 1 character'
