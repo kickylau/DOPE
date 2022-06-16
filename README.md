@@ -46,6 +46,23 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+Dope, a Yelp clone, is a dog cafe business website for logged in users to create cafe business and leave reviews. Users are also able to create, update, and delete any cafe business they own; users are also able to leave comments under the cafe business. The logged in users who posted those comments can edit and delete them.
+
+
+
+
+**Key Features**
+* Create new dog cafe business and have user login with authorization
+* Post, edit, and delete dog cafe business
+* Post cafe reviews under the business
+* Edit and delete the review the user owned
+
+
+
+
+
+
 <img width="1413" alt="Screen Shot 2022-06-16 at 3 47 41 PM" src="https://user-images.githubusercontent.com/94200416/174152368-cf36d674-5791-42a0-b0e4-67ce20192782.png">
 
 
@@ -121,4 +138,12 @@ To get a local copy up and running follow these simple example steps.
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/kickylau/DOPE](https://github.com/kickylau/DOPE)
+
+Kicky Liu - [GitHub](https://github.com/kickylau)
+
+
+Project Repo Link: [https://github.com/kickylau/DOPE/](https://github.com/kickylau/DOPE/)
+
+Project Link: [https://dope-kk.herokuapp.com/](https://dope-kk.herokuapp.com/)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
