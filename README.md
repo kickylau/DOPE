@@ -3,18 +3,21 @@
 
 <br />
 <div align="center">
+   <a href="https://dope-kk.herokuapp.com/"> 
+    <img src="http://dogemuchwow.com/wp-content/uploads/2016/05/cropped-the-doge-favicon-blue.png" alt="Logo" width="80" height="80">
+  </a>
 
 <h3 align="center">Dope</h3>
 
   <p align="center">
     Your No.1 NYC Local Dog Cafe Guide
     <br />
-    <a href="https://github.com/kickylau/DOPE"><strong>Explore the docs »</strong></a>
+    <a href="https://dope-kk.herokuapp.com"><strong>Explore the website »</strong></a>
     <br />
-    <br />
-    <a href="https://dope-kk.herokuapp.com//">View Demo</a>
   </p>
 </div>
+
+
 
 
 
@@ -43,7 +46,11 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<a href="https://ibb.co/ZghzKYF"><img src="https://i.ibb.co/4SjRMYX/Screen-Shot-2022-04-11-at-3-15-21-AM.png" alt="Screen-Shot-2022-04-11-at-3-15-21-AM" border="0"></a>
+<img width="1413" alt="Screen Shot 2022-06-16 at 3 47 41 PM" src="https://user-images.githubusercontent.com/94200416/174152368-cf36d674-5791-42a0-b0e4-67ce20192782.png">
+
+
+
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
